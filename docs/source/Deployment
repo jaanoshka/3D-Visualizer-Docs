@@ -11,3 +11,5 @@ Deployment
 ### Hosting
 - Backend: AWS EC2, Heroku, or any Flask-compatible platform.
 - Frontend: Netlify, Vercel, or similar static site hosting services.
+
+Test 123
