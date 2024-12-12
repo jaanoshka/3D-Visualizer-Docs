@@ -14,13 +14,13 @@ Relevance and areas of application
    :maxdepth: 3
    :hidden:
 
-   System Overview
+   System_Overview
    Quickstart
-   Data Preprocessing
-   Implemented Models
-   3D Visualisation
-   Backend Development
-   Frontend Development
+   Data_Preprocessing
+   Implemented_Models
+   3D_Visualisation
+   Backend_Development
+   Frontend_Development
    Deployment
    Notebooks
    Conclusion
