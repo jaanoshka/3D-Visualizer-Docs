@@ -1,7 +1,16 @@
 Data Preprocessing 
-==================
+====================
 
-Test 123
-
+Data Source 
+------------
 OpenNRW 
-Orthophotos und Lidar Datein matchen 
+Data from the website (Google Maps API, OpenStreetMap)
+
+Trimming and pre-processing
+----------------------------
+
+Matching of orthophoto and LiDAR data
+--------------------------------------
+
+Index (same data)
+-----------------
