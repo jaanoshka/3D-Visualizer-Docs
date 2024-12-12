@@ -1,5 +1,5 @@
-Welcome to TerraVision's documentation!
-======================================
+Introduction
+=============
 **TerraVision** is an advanced geospatial visualization and analysis platform that integrates satellite imagery, depth mapping, and 3D rendering capabilities. Designed to harness modern machine learning models and APIs, TerraVision enables users to analyze geospatial data in visually rich and interactive formats, catering to applications in urban planning, topographical analysis, and infrastructure development.
 
 

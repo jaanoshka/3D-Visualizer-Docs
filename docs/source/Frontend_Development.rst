@@ -1,12 +1,14 @@
+Frontend Development
+=====================
 Technology Stack
-=================
+-----------------
 - **React**: Interactive and responsive UI.
 - **React Router**: Handles navigation between views.
 - **@react-three/fiber** and **three.js**: 3D rendering and visualization.
 - **TypeScript**: Provides type safety and robust development experience.
 
 Frontend Views
-===============
+--------------
 
 ### `AddressInput.tsx`
 - A single input field for the address with a submit button styled in Apple UI fashion.

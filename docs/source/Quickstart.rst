@@ -1,5 +1,7 @@
+Quickstart
+===========
 Getting started - Development Setup
-====================================
+------------------------------------
 
 ### Prerequisites
 - Python 3.10 or later
@@ -40,10 +42,7 @@ Getting started - Development Setup
    ```
 
 Using the system
-=================
-Address-Based Data Retrieval
------------------------------
-Volume and Area Estimation
----------------------------
-Downloadable Assets
---------------------
+-----------------
+**Address-Based Data Retrieval**
+**Volume and Area Estimation**
+**Downloadable Assets**
