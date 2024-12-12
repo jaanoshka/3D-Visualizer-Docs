@@ -1,31 +1,32 @@
 Welcome to TerraVision's documentation!
 ======================================
+**TerraVision** is an advanced geospatial visualization and analysis platform that integrates satellite imagery, depth mapping, and 3D rendering capabilities. Designed to harness modern machine learning models and APIs, TerraVision enables users to analyze geospatial data in visually rich and interactive formats, catering to applications in urban planning, topographical analysis, and infrastructure development.
+
 
 Problem statement and motivation 
---------
+---------------------------------
 
 Aim of the project 
---------
+-------------------
 
 Relevance and areas of application
---------
+-----------------------------------
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 12
    :hidden:
 
-   System_Overview
-   Quickstart
-   Data_Preprocessing
-   Implemented_Models
-   3D_Visualisation
-   Backend_Development
-   Frontend_Development
-   Deployment
-   Notebooks
-   Conclusion
+   System_Overview.rst
+   Quickstart.rst
+   Data_Preprocessing.rst
+   Implemented_Models.rst
+   3D_Visualisation.rst
+   Backend_Development.rst
+   Frontend_Development.rst
+   Deployment.rst
+   Notebooks.rst
+   Conclusion.rst
 
-**TerraVision** is an advanced geospatial visualization and analysis platform that integrates satellite imagery, depth mapping, and 3D rendering capabilities. Designed to harness modern machine learning models and APIs, TerraVision enables users to analyze geospatial data in visually rich and interactive formats, catering to applications in urban planning, topographical analysis, and infrastructure development.
 
 License
 -------

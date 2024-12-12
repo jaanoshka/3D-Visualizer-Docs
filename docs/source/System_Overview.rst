@@ -1,8 +1,5 @@
-System Overview
-================
-
 Features
---------
+=========
 
 - **Address-Based Data Retrieval**
   - Users can input an address to retrieve satellite imagery and depth maps.
@@ -25,7 +22,7 @@ Features
   - Provides satellite images, depth maps, and 3D mesh files for download in user-friendly formats.
 
 System Architecture
---------------------
+===================
 
 ### Workflow
 1. **Input**:

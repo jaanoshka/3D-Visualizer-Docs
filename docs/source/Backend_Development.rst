@@ -1,10 +1,5 @@
-Backend Development 
-====================
-
 Technology Stack
-----------------
-
-### Backend
+=================
 - **Flask**: RESTful API development.
 - **Open3D**: 3D mesh and point cloud processing.
 - **PyTorch**: Depth prediction using advanced ML models.
@@ -12,8 +7,8 @@ Technology Stack
 - **OpenStreetMap (OSM)**: Fetches building footprints and other geospatial data.
 - **Google Maps API**: Retrieves satellite imagery and geocoding data.
 
-Backend API Endpoints
-----------------------
+API Endpoints
+==============
 
 ### `/mesh/image/<address>`
 - **Method**: GET
@@ -35,5 +30,3 @@ Backend API Endpoints
 - **NumPy**: Numerical data manipulation.
 - **Pandas**: Dataframe processing for geospatial data.
 - **Matplotlib**: Depth map visualization.
-
-Test 123

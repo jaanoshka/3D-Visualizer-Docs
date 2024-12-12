@@ -1,8 +1,5 @@
-Quickstart
-===========
-
-Development Setup
-------------------
+Getting started - Development Setup
+====================================
 
 ### Prerequisites
 - Python 3.10 or later
@@ -42,3 +39,11 @@ Development Setup
    npm run dev
    ```
 
+Using the system
+=================
+Address-Based Data Retrieval
+-----------------------------
+Volume and Area Estimation
+---------------------------
+Downloadable Assets
+--------------------
