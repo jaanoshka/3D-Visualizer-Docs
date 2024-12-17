@@ -12,10 +12,26 @@ Matching of orthophoto and LiDAR data
 --------------------------------------
 
 Indicies
------------------
+---------
 *by Evalotta Horn*
 
+Indices
+---------
+
+.. raw:: html
+
+   <span style="font-size: 0.8em; font-style: italic;">by Evalotta Horn</span>
+
+Indices
+---------
+
+.. raw:: html
+
+   <span style="font-size: 0.8em; font-style: italic; display: inline;">by Evalotta Horn</span>
+
+
 After the dataset was created that included the prepared orthophotos and matching lidar datas, two lists with indicies were created.
+
 .. code-block:: python
 
     indices = list(range(len(dataset)))
