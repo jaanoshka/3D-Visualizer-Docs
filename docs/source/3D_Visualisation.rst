@@ -1,4 +1,4 @@
-3D_Visualisation
+3D Visualisation
 ==================
 
 Creation of depth maps
