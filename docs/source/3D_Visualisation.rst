@@ -57,23 +57,31 @@ Mesh reconstruction (Poisson reconstruction)
 ----------------------------------------------
 *by Evalotta Horn*
 
-For the mesh reconstruction we decided to use the possion reconstruction. Its characteristics are that it produces non-smooth results and is robust against noises. As mentioned above the poinclouds need to have normals as direction information.
+For the surface reconstruction, we decided to use Poisson Reconstruction. This method is characterized by its ability to produce smooth results and its robustness against noise. As mentioned earlier, the point clouds must include normals as directional information for this approach to work.
 
-When looking at the surface reconstruction the Ball pivoting was also been considered. This works as a virtual ball with a certain radius rolls from point to point and creates triangles. For this to work the pointcloud needs to be even and have a sufficiente density. 
+During our evaluation, Ball Pivoting was also considered as an alternative. Ball Pivoting works by rolling a virtual ball with a defined radius from point to point to form triangles. However, for this method to succeed, the point cloud must be evenly distributed and have sufficient density.
 
-The following four points made us decide to use the poissoin recunstruction and not the ball pivoting:
-- The poisson reconstruction is robust agains noises, creates smooth surfaces and polishes off little irrgegulations. 
-- It creates a closed surface while the ball pivoting creates open meshes, which may contain gaps when the poincloud density is non-uniform. This can be the reason here as we olnly have point for ecery pixel and not the density like Lidar data. Also it is harder to understand a mesh, when the houses are open and see through. 
-- Automatic adaption to geometry while the ball pivoting only has one radius. 
-- Applicability of large data sets, while ball pivoting is very memory intensive. This we saw during the development. While we were able to creat a high number of meshes through the poisson resconstruction with the computing units of colab, the ball pivoting always crushed the system. 
+The following four points led us to favor Poisson Reconstruction over Ball Pivoting:
 
+- Noise Robustness and Surface Smoothness: Poisson Reconstruction is robust against noise, generates smooth surfaces, and effectively eliminates minor irregularities.
+- Closed Surfaces: Poisson Reconstruction creates closed surfaces, whereas Ball Pivoting can result in open meshes with gaps if the point cloud density is non-uniform. This was particularly relevant to our project because our point clouds contain only one point per pixel, unlike LiDAR data, which offers higher density. Open and see-through meshes (e.g., with houses having missing walls) are harder to interpret visually.
+- Automatic Adaptation to Geometry: Poisson Reconstruction automatically adapts to the geometry of the point cloud, while Ball Pivoting relies on a single fixed radius.
+- Scalability for Large Datasets: Poisson Reconstruction is more memory-efficient when processing large datasets. During development, we observed that while we could successfully create numerous meshes using Poisson Reconstruction on Google Colab’s computing resources, Ball Pivoting consistently caused system crashes due to its high memory consumption.
 After loading the saved PLY file the function possion meshing was beeing defined. The depth of 11, determines the depth of the octree composition, and was the highest we were able to go without crashing colab. 
+
+**Implementation of Poisson Reconstruction**
+
+After saving the point cloud as a PLY file, we defined a function for Poisson Meshing. The parameter depth=11 controls the depth of the octree decomposition. This value represents the highest depth we could use without exceeding Colab’s resource limits.
 
 .. code-block:: python
 
     def create_poisson_mesh(pcd, depth=11)
 
-With the following skript the surface reconstruction is executed.The pcd is the poincloud with all information that we created further above here. The width of 0 is a standard value and controls the width of the bounding box. The scale factor, here 1.1, determines how much the bounding cube of the input point cloud is expanded. This creates a polygon mesh (consisting of triangles) from the point cloud. Before having the build system, we used CloudCompare to visualize the saved pointclouds and meshes. 
+In this script:
+
+- pcd refers to the point cloud containing all the information generated earlier.
+- width=0 is a standard value controlling the bounding box width.
+- scale=1.1 determines how much the bounding cube of the input point cloud is expanded.
 
 .. code-block:: python
 
@@ -83,6 +91,7 @@ With the following skript the surface reconstruction is executed.The pcd is the 
     
     return poisson_mesh
 
+The function generates a polygon mesh consisting of triangles from the point cloud. Before establishing this workflow, we initially used CloudCompare to visualize and analyze the saved point clouds and meshes.
 
 Interactive visualisation
 --------------------------
