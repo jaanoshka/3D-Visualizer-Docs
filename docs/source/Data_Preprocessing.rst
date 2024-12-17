@@ -39,16 +39,9 @@ This function saves the indices with NumPy and with the path they can be loaded 
 ``test_loader = DataLoader(dataset, batch_size=40, sampler=SubsetRandomSampler(test_indices), num_workers=2)``
 
 ``random.seed(42)``
+``train_loader = DataLoader(dataset, batch_size=40, sampler=SubsetRandomSampler(train_indices), num_workers=2)``
+``test_loader = DataLoader(dataset, batch_size=40, sampler=SubsetRandomSampler(test_indices), num_workers=2)``
 
-``train_loader = DataLoader(
-    dataset,
-    batch_size=40,
-    sampler=SubsetRandomSampler(train_indices),
-    num_workers=2
-)
-test_loader = DataLoader(
-    dataset,
-    batch_size=40,
-    sampler=SubsetRandomSampler(test_indices),
-    num_workers=2
-)``
+``random.seed(42)
+train_loader = DataLoader(dataset, batch_size=40, sampler=SubsetRandomSampler(train_indices), num_workers=2)
+test_loader = DataLoader(dataset, batch_size=40, sampler=SubsetRandomSampler(test_indices), num_workers=2)``
