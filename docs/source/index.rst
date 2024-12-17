@@ -1,10 +1,6 @@
 Introduction to TerraVision 
 ===========================
-
-.. raw:: html
-
-   <span style="font-size: 0.8em; font-style: italic; display: inline;">by Evalotta Horn</span>
-
+*by Evalotta Horn*
 
 Problem statement and motivation 
 ---------------------------------

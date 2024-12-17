@@ -1,5 +1,7 @@
 Backend_Development
 ====================
+*by Jasmin Fabijanov*
+
 Technology Stack
 -----------------
 - **Flask**: RESTful API development.

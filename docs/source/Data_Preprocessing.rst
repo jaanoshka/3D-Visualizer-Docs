@@ -2,45 +2,22 @@ Data Preprocessing
 ===================
 Data Source 
 ------------
+*by Jasmin Fabijanov*
+
 OpenNRW 
 Data from the website (Google Maps API, OpenStreetMap)
 
 Trimming and pre-processing
 ----------------------------
+*by Jasmin Fabijanov*
 
 Matching of orthophoto and LiDAR data
 --------------------------------------
+*by Jasmin Fabijanov*
 
 Indices
 ---------
 *by Evalotta Horn*
-
-After the dataset 
-
-Indices
----------
-
-.. raw:: html
-
-   <span style="font-size: 0.8em; font-style: italic; display: inline;">by Evalotta Horn</span>
-
-After the dataset
-
-Indices
-=======
-
-.. raw:: html
-
-   <div style="font-size: 0.8em; font-style: italic; margin-top: 0;">by Evalotta Horn</div>
-
-After the dataset 
-
-Indices
-=======
-
-.. raw:: html
-
-   <p style="font-size: 0.8em; font-style: italic; margin: 0;">by Evalotta Horn</p>
 
 After the dataset was created, which included the prepared orthophotos and corresponding LiDAR data, two lists of indices were generated to manage the data split.
 
