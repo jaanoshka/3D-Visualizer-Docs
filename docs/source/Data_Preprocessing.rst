@@ -19,6 +19,7 @@ After the dataset was created that included the prepared orthophotos and matchin
 .. code-block:: python
 
     indices = list(range(len(dataset)))
+
 The goal here is to have the exact same data for the training of all three models and also the same order. 
 
 .. code-block:: python
