@@ -6,7 +6,7 @@ Depth Anything V2
 
 Zoe Depth 
 ----------
-**MATHI**
+*by Matthäus Surafial*
 
 Baseline Model 
 ---------------

@@ -95,6 +95,6 @@ The function generates a polygon mesh consisting of triangles from the point clo
 
 Interactive visualisation
 --------------------------
-**JAN**
+*by Jan Schittenhelm*
 
 Tools: React, Three.js, @react-three/fibre

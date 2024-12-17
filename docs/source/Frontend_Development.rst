@@ -1,6 +1,6 @@
 Frontend Development
 =====================
-**JAN**
+*by Jan Schittenhelm*
 
 Technology Stack
 -----------------
