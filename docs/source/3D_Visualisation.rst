@@ -11,6 +11,7 @@ Generation of point clouds
 ---------------------------
 *by Evalotta Horn*
 
+This step can vary, depending on the type of input data. 
 csv to numpy 
 Von ply Datei zu Open3D PointCloud-Objekt
 Norms berechnen und hinzufügen 

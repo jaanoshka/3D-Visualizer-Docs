@@ -1,6 +1,7 @@
 Quickstart
 ===========
 *by Jasmin Fabijanov*
+
 Getting started - Development Setup
 ------------------------------------
 
