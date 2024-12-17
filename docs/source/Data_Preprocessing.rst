@@ -32,6 +32,23 @@ A train and data loader were created,  the data loader is used to load data effi
 
 This function saves the indices with NumPy and with the path they can be loaded in the script for each model. At the end we used 6842 orthophotos and the matching Lidar data for the training and 1711 for the testing. 
 
-``random.seed(42)
-train_loader = DataLoader(dataset, batch_size=40, sampler=SubsetRandomSampler(train_indices), num_workers=2)
-test_loader = DataLoader(dataset, batch_size=40, sampler=SubsetRandomSampler(test_indices), num_workers=2)``
+``random.seed(42)``
+
+``train_loader = DataLoader(dataset, batch_size=40, sampler=SubsetRandomSampler(train_indices), num_workers=2)``
+
+``test_loader = DataLoader(dataset, batch_size=40, sampler=SubsetRandomSampler(test_indices), num_workers=2)``
+
+``random.seed(42)``
+
+``train_loader = DataLoader(
+    dataset,
+    batch_size=40,
+    sampler=SubsetRandomSampler(train_indices),
+    num_workers=2
+)
+test_loader = DataLoader(
+    dataset,
+    batch_size=40,
+    sampler=SubsetRandomSampler(test_indices),
+    num_workers=2
+)``
