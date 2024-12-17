@@ -1,6 +1,10 @@
 Introduction to TerraVision 
 ===========================
-*by Evalotta Horn*
+
+.. raw:: html
+
+   <span style="font-size: 0.8em; font-style: italic; display: inline;">by Evalotta Horn</span>
+
 
 Problem statement and motivation 
 ---------------------------------
@@ -36,7 +40,6 @@ The workflow developed in this project directly contributes to these goals by pr
    Backend_Development.rst
    Frontend_Development.rst
    Deployment.rst
-   Notebooks.rst
    Conclusion.rst
 
 

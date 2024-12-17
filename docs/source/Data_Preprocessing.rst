@@ -11,17 +11,6 @@ Trimming and pre-processing
 Matching of orthophoto and LiDAR data
 --------------------------------------
 
-Indicies
----------
-*by Evalotta Horn*
-
-Indices
----------
-
-.. raw:: html
-
-   <span style="font-size: 0.8em; font-style: italic;">by Evalotta Horn</span>
-
 Indices
 ---------
 
