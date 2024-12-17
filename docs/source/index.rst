@@ -49,5 +49,3 @@ License
 **TerraVision** is licensed under the MIT License.
 
 For detailed documentation, visit: [https://terravision.readthedocs.io](https://terravision.readthedocs.io)
-
-.. [#] by Evalotta Horn
