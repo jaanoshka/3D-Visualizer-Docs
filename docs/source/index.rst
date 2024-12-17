@@ -1,8 +1,5 @@
-Introduction
+Introduction to TerraVision
 =============
-**TerraVision** is an advanced geospatial visualization and analysis platform that integrates satellite imagery, depth mapping, and 3D rendering capabilities. Designed to harness modern machine learning models and APIs, TerraVision enables users to analyze geospatial data in visually rich and interactive formats, catering to applications in urban planning, topographical analysis, and infrastructure development.
-
-
 Problem statement and motivation 
 ---------------------------------
 Heating accounts for 64% of the total energy consumption in private households, underscoring the urgent need for precise energy planning and optimization. Accurate elevation data is a critical factor for estimating energy requirements and supporting urban development. However, there is a significant data gap: while satellite imagery provides 2D information (latitude and longitude), it does not include globally available altitude data.
