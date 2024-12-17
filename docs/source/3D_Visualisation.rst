@@ -63,10 +63,10 @@ During our evaluation, Ball Pivoting was also considered as an alternative. Ball
 
 The following four points led us to favor Poisson Reconstruction over Ball Pivoting:
 
-- Noise Robustness and Surface Smoothness: Poisson Reconstruction is robust against noise, generates smooth surfaces, and effectively eliminates minor irregularities.
-- Closed Surfaces: Poisson Reconstruction creates closed surfaces, whereas Ball Pivoting can result in open meshes with gaps if the point cloud density is non-uniform. This was particularly relevant to our project because our point clouds contain only one point per pixel, unlike LiDAR data, which offers higher density. Open and see-through meshes (e.g., with houses having missing walls) are harder to interpret visually.
-- Automatic Adaptation to Geometry: Poisson Reconstruction automatically adapts to the geometry of the point cloud, while Ball Pivoting relies on a single fixed radius.
-- Scalability for Large Datasets: Poisson Reconstruction is more memory-efficient when processing large datasets. During development, we observed that while we could successfully create numerous meshes using Poisson Reconstruction on Google Colab’s computing resources, Ball Pivoting consistently caused system crashes due to its high memory consumption.
+- **Noise Robustness and Surface Smoothness:** Poisson Reconstruction is robust against noise, generates smooth surfaces, and effectively eliminates minor irregularities.
+- **Closed Surfaces:** Poisson Reconstruction creates closed surfaces, whereas Ball Pivoting can result in open meshes with gaps if the point cloud density is non-uniform. This was particularly relevant to our project because our point clouds contain only one point per pixel, unlike LiDAR data, which offers higher density. Open and see-through meshes (e.g., with houses having missing walls) are harder to interpret visually.
+- **Automatic Adaptation to Geometry:** Poisson Reconstruction automatically adapts to the geometry of the point cloud, while Ball Pivoting relies on a single fixed radius.
+- **Scalability for Large Datasets:** Poisson Reconstruction is more memory-efficient when processing large datasets. During development, we observed that while we could successfully create numerous meshes using Poisson Reconstruction on Google Colab’s computing resources, Ball Pivoting consistently caused system crashes due to its high memory consumption.
 After loading the saved PLY file the function possion meshing was beeing defined. The depth of 11, determines the depth of the octree composition, and was the highest we were able to go without crashing colab. 
 
 **Implementation of Poisson Reconstruction**
