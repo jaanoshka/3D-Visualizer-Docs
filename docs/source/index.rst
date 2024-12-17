@@ -1,9 +1,5 @@
-Introduction to TerraVision *\ (by Evalotta Horn)*
+Introduction to TerraVision [#]_.
 ===========================
-
-Introduction to TerraVision |smalltext| :small:`by Evalotta Horn`
-===========================
-
 Problem statement and motivation 
 ---------------------------------
 Heating accounts for 64% of the total energy consumption in private households, underscoring the urgent need for precise energy planning and optimization. Accurate elevation data is a critical factor for estimating energy requirements and supporting urban development. However, there is a significant data gap: while satellite imagery provides 2D information (latitude and longitude), it does not include globally available altitude data.
@@ -49,4 +45,4 @@ License
 
 For detailed documentation, visit: [https://terravision.readthedocs.io](https://terravision.readthedocs.io)
 
-
+.. [#] by Evalotta Horn
