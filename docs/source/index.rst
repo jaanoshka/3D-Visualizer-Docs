@@ -2,7 +2,7 @@ Introduction to TerraVision
 ============================
 .. raw:: html
 
-    <p style="font-size: 0.8em; font-style: italic; margin: 0;">by Evalotta Horn</p>
+    <p style="font-size: 0.8em; font-style: italic; margin-top: 0; margin-bottom: 1em;">by Evalotta Horn</p>
 Problem statement and motivation 
 ---------------------------------
 Heating accounts for 64% of the total energy consumption in private households, underscoring the urgent need for precise energy planning and optimization. Accurate elevation data is a critical factor for estimating energy requirements and supporting urban development. However, there is a significant data gap: while satellite imagery provides 2D information (latitude and longitude), it does not include globally available altitude data.
