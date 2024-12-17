@@ -1,4 +1,6 @@
-Introduction to TerraVision [#]_.
+Introduction to TerraVision [#]_
+===========================
+Introduction to TerraVision *by Evalotta Horn*
 ===========================
 Problem statement and motivation 
 ---------------------------------
