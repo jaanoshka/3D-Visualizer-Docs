@@ -7,26 +7,30 @@ Creation of depth maps
 *by Jasmin Fabijanov*
 
 
-Generation of point clouds
+Generating pointclouds
 ---------------------------
 *by Evalotta Horn*
 
-This step can vary, depending in which form the predicted z coordinate and its associated x- and y- coordinate as well as the RGB colour information are.
+This step can vary depending on the format in which the predicted z-coordinate, its associated x- and y-coordinates, and the RGB color information are provided.
 
-During the development phase we had the case that the output of a model was a CSV file containg the six data points mentioned above. Here the first step was to convert the CSV file into a NumPy-Array. The advantages here are that all elements in a NumPy array have the same data type. Furthermore a Multidimensionality is possible. Also efficiency is an important factor due to that NumPy arrays are faster and more memory-efficient than Python lists because they are implemented in C.
+During the development phase, we encountered cases where the model's output was a CSV file containing the six aforementioned data points. In such instances, the first step was to convert the CSV file into a NumPy array. This conversion offers several advantages:
+
+- All elements in a NumPy array share the same data type.
+- Multidimensional data structures are supported.
+- NumPy arrays are both faster and more memory-efficient than Python lists because they are implemented in C.
 
 .. code-block:: python
 
     points = df[['x-Koordinate', 'y-Koordinate', 'z-Koordinate']].to_numpy()
 
-The next step is uniform because if the models output was not a CSV file it was for sure a NumPy-Array. The next step is that a pointcloud is created and the points added. 
+If the model's output was not a CSV file, it was already provided as a NumPy array, making the next step uniform. At this point, a point cloud is created, and the points are added:
 
 .. code-block:: python
 
     point_cloud = o3d.geometry.PointCloud()
     point_cloud.points = o3d.utility.Vector3dVector(points)
 
-Furthermore to have a more realistic result at the end, the natural color of each pixel are added to the pointcloud. The colour points are also reshaped into a NumPy array in three columns in order to perform the calculations more efficiently. In addition, they are divided by 255.0 in order to scale the values by normalisation in the range from 0 to 1. This ensures that the colour values are in the correct format for Open3D.
+To achieve a more realistic final result, the natural colors of each pixel are added to the point cloud. The RGB color points are reshaped into a NumPy array with three columns to facilitate efficient calculations. The values are then normalized to a range between 0 and 1 by dividing them by 255.0, ensuring compatibility with Open3D.
 
 .. code-block:: python
 
@@ -34,15 +38,15 @@ Furthermore to have a more realistic result at the end, the natural color of eac
     colors = df[['r-Wert', 'g-Wert', 'b-Wert']].to_numpy() / 255.0  # Normalisierung auf [0, 1]
     point_cloud.colors = o3d.utility.Vector3dVector(colors)
 
-For the pointcloud, which is a ply file, normals are needed. These are estimate based on the nearest neighbours. The calculation is performed in a small radius. This has the advantage that local structures are captured more precisely. We also have a maximum number of nearest neighbours that are taken into account when calculating the normals. This limit prevents excessive calculation times for dense point clouds.
+For the point cloud, which is ultimately saved as a PLY file, normals must be estimated. This estimation is based on the nearest neighbors within a small radius. Using a limited radius ensures that local structures are captured accurately. Additionally, a maximum number of nearest neighbors is specified to prevent excessive computation times for dense point clouds.
 
 .. code-block:: python
 
     point_cloud.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=0.1, max_nn=30))
 
-Normals are important because they indicate the orientation of the surface elements at each point. They are therefore essential for understanding the structure of a 3D surface. They also help to recognise edges, planes or other features in the point cloud. Furthermore, they are useful for identifying outliers or smoothing points. In the following step of 3D mesh creation, normals are required as input to correctly reconstruct the surface structure.
+Normals are crucial as they represent the orientation of surface elements at each point, which helps to understand the structure of a 3D surface. Normals also assist in detecting edges, planes, and other features within the point cloud. They are further valuable for identifying outliers and smoothing points. In subsequent steps, such as 3D mesh creation, normals are required as input to accurately reconstruct the surface structure.
 
-At the end the is a ply file which includes y-, x- and z coordonates, the normalised RGB values and norms for every pixel from an orthophoto. This file is being saved so it can be used as an input for the surface reconstruction. 
+At the end of this process, the result is a PLY file that includes the x-, y-, and z-coordinates, normalized RGB values, and normals for every pixel derived from the orthophoto. This file is saved for use as input in surface reconstruction:
 
 .. code-block:: python
     
@@ -52,6 +56,33 @@ At the end the is a ply file which includes y-, x- and z coordonates, the normal
 Mesh reconstruction (Poisson reconstruction)
 ----------------------------------------------
 *by Evalotta Horn*
+
+For the mesh reconstruction we decided to use the possion reconstruction. Its characteristics are that it produces non-smooth results and is robust against noises. As mentioned above the poinclouds need to have normals as direction information.
+
+When looking at the surface reconstruction the Ball pivoting was also been considered. This works as a virtual ball with a certain radius rolls from point to point and creates triangles. For this to work the pointcloud needs to be even and have a sufficiente density. 
+
+The following four points made us decide to use the poissoin recunstruction and not the ball pivoting:
+- The poisson reconstruction is robust agains noises, creates smooth surfaces and polishes off little irrgegulations. 
+- It creates a closed surface while the ball pivoting creates open meshes, which may contain gaps when the poincloud density is non-uniform. This can be the reason here as we olnly have point for ecery pixel and not the density like Lidar data. Also it is harder to understand a mesh, when the houses are open and see through. 
+- Automatic adaption to geometry while the ball pivoting only has one radius. 
+- Applicability of large data sets, while ball pivoting is very memory intensive. This we saw during the development. While we were able to creat a high number of meshes through the poisson resconstruction with the computing units of colab, the ball pivoting always crushed the system. 
+
+After loading the saved PLY file the function possion meshing was beeing defined. The depth of 11, determines the depth of the octree composition, and was the highest we were able to go without crashing colab. 
+
+.. code-block:: python
+
+    def create_poisson_mesh(pcd, depth=11)
+
+With the following skript the surface reconstruction is executed.The pcd is the poincloud with all information that we created further above here. The width of 0 is a standard value and controls the width of the bounding box. The scale factor, here 1.1, determines how much the bounding cube of the input point cloud is expanded. This creates a polygon mesh (consisting of triangles) from the point cloud. Before having the build system, we used CloudCompare to visualize the saved pointclouds and meshes. 
+
+.. code-block:: python
+
+    poisson_mesh = o3d.geometry.TriangleMesh.create_from_point_cloud_poisson(
+         pcd, depth=depth, width=0, scale=1.1, linear_fit=False)[0]
+
+    
+    return poisson_mesh
+
 
 Interactive visualisation
 --------------------------
