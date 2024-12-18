@@ -48,8 +48,26 @@ The Huber Loss function merges the properties of the mean absolute error (MAE) a
     huber_loss_fn = HuberLoss(reduction='mean', delta=1.0)
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
 
-**Training**
-Ten epochs were choosen for the training loop. 
+
+.. code-block:: python
+        # Forward pass
+        outputs = model(images)
+
+        # Calculate loss
+        loss = huber_loss_fn(outputs, depths)
+
+        # Backward pass and optimization
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        running_loss += loss.item()
+
+The baseline model was trained using a standard supervised learning approach. During each training iteration, the model performed a forward pass to generate predictions (outputs) based on the input images. The Huber Loss function was then used to compute the loss between the predicted outputs and the ground truth depth values (depths). A backward pass calculated the gradients of the loss with respect to the model parameters, which were subsequently updated using the Adam optimizer. The training loop also accumulated the loss values to monitor the model's performance across iterations. This process ensured the model was progressively optimized for accurate depth prediction. Ten epochs were choosen for the training loop. 
+
+.. code-block:: python
+
+    train_model(model, train_loader, optimizer, huber_loss_fn, epochs=epochs)
 
 Comparison of the Models
 --------------------------
