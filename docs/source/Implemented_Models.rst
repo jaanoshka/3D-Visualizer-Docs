@@ -50,6 +50,7 @@ The Huber Loss function merges the properties of the mean absolute error (MAE) a
 
 
 .. code-block:: python
+    
         # Forward pass
         outputs = model(images)
 
