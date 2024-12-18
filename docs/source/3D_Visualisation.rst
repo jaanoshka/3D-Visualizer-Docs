@@ -57,7 +57,7 @@ Mesh reconstruction (Poisson reconstruction)
 ----------------------------------------------
 *by Evalotta Horn*
 
-For the surface reconstruction, we decided to use Poisson Reconstruction. [#]_ This method is characterized by its ability to produce smooth results and its robustness against noise. As mentioned earlier, the point clouds must include normals as directional information for this approach to work.
+For the surface reconstruction, we decided to use Poisson Reconstruction. [#]_  This method is characterized by its ability to produce smooth results and its robustness against noise. As mentioned earlier, the point clouds must include normals as directional information for this approach to work.
 
 During our evaluation, Ball Pivoting [#]_ was also considered as an alternative. Ball Pivoting works by rolling a virtual ball with a defined radius from point to point to form triangles. However, for this method to succeed, the point cloud must be evenly distributed and have sufficient density.
 
