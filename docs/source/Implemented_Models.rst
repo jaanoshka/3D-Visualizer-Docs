@@ -24,12 +24,12 @@ The baseline model serves as a reference for evaluating the performance and impr
 
 .. code-block:: python
 
-model = smp.Unet(
-    encoder_name="resnet34",  # Use a pre-trained encoder
-    encoder_weights="imagenet",
-    in_channels=3,  # RGB input
-    classes=1  # Single output channel for the z-coordinate
-)
+    model = smp.Unet(
+        encoder_name="resnet34",  
+        encoder_weights="imagenet",
+        in_channels=3,  
+        classes=1  
+    )
 
 In this architecture, the encoder extracts features from the input image, while the decoder restores these features to their original resolution. U-Net uses skip connections to combine low-resolution features from the encoder with high-resolution features from the decoder, enhancing the segmentation accuracy. For this project, we used ResNet34 as the backbone. ResNet34 is a convolutional neural network (CNN) originally developed for classification tasks. It is both efficient and versatile, providing strong results across various applications.
 
