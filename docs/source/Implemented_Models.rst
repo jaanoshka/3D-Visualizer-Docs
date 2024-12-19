@@ -81,8 +81,16 @@ To analyse and compare the models, we will use two approaches. Firstly, we will 
 .. image:: ../static/images/predicted_depth_map2_516000.0_5759000.0_part_2_1.png
     :alt: Depth Maps of residential area
     :align: center
-    :width: 50%
+    :width: 75%
 
+.. image:: ../static/images/predicted_depth_map2_516000.0_5759000.0_part_2_1.png
+    :alt: Depth Maps of residential area
+    :align: center
+
+.. image:: ../static/images/predicted_depth_map2_516000.0_5759000.0_part_2_1.png
+    :alt: Depth Maps of residential area
+    :align: center
+    :width: 800px
 
 .. [#] Yang, L. et al. (2024) “Depth Anything V2.” Available at: http://arxiv.org/abs/2406.09414.
 .. [#] Lakubovskii, P. (2014) Segmentation Models’s . Available at: https://smp.readthedocs.io/en/latest/ (Accessed: December 11, 2024).
