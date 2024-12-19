@@ -77,6 +77,7 @@ Comparison of the Models
 To analyse and compare the models, we will use two approaches. Firstly, we will look at the test and training losses and secondly, we will compare the depth maps with the true depth map consisting of lidar data in different categories. At the end we will draw an overall conclusion about the three models. 
 
 **Trainings and Test losses**
+
 .. image:: ../static/images/example.png
     :alt: Depth Maps of residential area
     :align: center
