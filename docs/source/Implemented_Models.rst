@@ -82,7 +82,6 @@ To analyse and compare the models, we will use two approaches. Firstly, we will 
     :alt: Depth Maps of residential area
     :align: center
     :width: 50%
-    :scale: 75
 
 
 .. [#] Yang, L. et al. (2024) “Depth Anything V2.” Available at: http://arxiv.org/abs/2406.09414.
