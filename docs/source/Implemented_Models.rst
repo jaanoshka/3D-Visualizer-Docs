@@ -78,7 +78,7 @@ To analyse and compare the models, we will use two approaches. Firstly, we will 
 
 **Trainings and Test losses**
 
-.. image:: ../static/images/example.png
+.. image:: ../static/images/predicted_depth_map2_516000.0_5759000.0_part_2_1.png
     :alt: Depth Maps of residential area
     :align: center
     :width: 50%
