@@ -74,6 +74,16 @@ Comparison of the Models
 --------------------------
 *by Evalotta Horn*
 
+To analyse and compare the models, we will use two approaches. Firstly, we will look at the test and training losses and secondly, we will compare the depth maps with the true depth map consisting of lidar data in different categories. At the end we will draw an overall conclusion about the three models. 
+
+**Trainings and Test losses**
+.. image:: ../static/images/example.png
+    :alt: Depth Maps of residential area
+    :align: center
+    :width: 50%
+    :scale: 75
+
+
 .. [#] Yang, L. et al. (2024) “Depth Anything V2.” Available at: http://arxiv.org/abs/2406.09414.
 .. [#] Lakubovskii, P. (2014) Segmentation Models’s . Available at: https://smp.readthedocs.io/en/latest/ (Accessed: December 11, 2024).
 .. [#] Howard, J. and Thomas, R. (no date) Welcome to fastai. Available at: https://docs.fast.ai (Accessed: December 18, 2024).
