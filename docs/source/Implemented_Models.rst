@@ -74,40 +74,47 @@ Comparison of the Models
 --------------------------
 *by Evalotta Horn*
 
-To analyse and compare the models, we will use two approaches. Firstly, we will look at the test and training losses and secondly, we will compare the depth maps with the true depth map consisting of lidar data in different categories. 
+To analyse and compare the models, we used two approaches. Firstly, we examined the test and training losses, and secondly, we compared the depth maps with the true depth map derived from LiDAR data across different categories.
 
 **Trainings and Test losses**
 
-All three models were trained for ten epochs and as already mentioned before on the same data, from NRW consisting out of orthophotos and lidar data, and also in the same order.
+All three models were trained for ten epochs on the same dataset, consisting of orthophotos and LiDAR data from North Rhine-Westphalia (NRW). The training data was used in the same order for consistency.
 
-For the basic modell the training loss starts at 3.4906 and decreases continuously to 1.1148. This shows that the model learns to reduce the errors in the prediction during training. The loss decreases more slowly in the later epochs, which indicates that the model is approaching convergence. The average test loss is 1,870. The difference between training and test loss is significant (0.7556). This indicates that the basic model suffers from overfitting: It has overfitted to the training data, but generalises poorly to new data.
-The low training loss explains why it was able to model the training data well, but the quality of the test data is poorer (visible in the poor depth map). The basic model may be too simple to capture the complexity of the depth relationships in the data. While it can minimise the training loss, it cannot reconstruct the finer details of the depth maps. The lack of generalisation is shown through the architecture of the model which is not sufficient to fully capture the complexity of the data.
-The basic model is hardly suitable for practical applications, as it shows the worst generalisation and depth map quality despite the low training loss.
+The training loss for the *Basic Model* starts at 3.4906 and decreases steadily to 1.1148, showing that the model learns to reduce errors during training. However, the average test loss is 1.870, resulting in a significant difference of 0.7556 between training and test loss. This indicates that the Basic Model suffers from overfitting: it has overfitted the training data but generalises poorly to unseen data.
+While the Basic Model minimises the training loss effectively, it fails to reconstruct finer details in the depth maps, resulting in poor-quality predictions. The architecture of the model is likely too simple to fully capture the complexity of the depth relationships in the data. As a result, the Basic Model is unsuitable for practical applications due to its poor generalisation and subpar depth map quality, despite achieving a low training loss.
 
-For the Depth Anything V2 modell the training loss starts at 2.1238 and decreases down to 1.7315, while the average test loss is 1.8317. The difference between training and test loss is approximately 0.6247, which indicates better generalisation than with the basic model.
-The model is able to better capture the structures of the test data. The higher model complexity is reflected by the more robust encoder and the pre-trained weights and could contribute to the improved generalisation capability. The ResNet34 encoder allows the model to extract more complex features, resulting in better depth maps. The initial weights from ImageNet help the model to recognise general structures. It combines good architecture (U-Net + ResNet34) with efficient processing.
-Although the test loss at the end of the tenth epoch is slightly higher than with the Basic Model, the visual quality of the generated depth maps is much better (clearer building edges, fewer artefacts). The good balance between training and test loss shows that the Depth Anything V2 is robust and suitable for use in real-world applications.
+The training loss for *Depth Anything V2* begins at 2.1238 and decreases to 1.7315, while the average test loss is 1.8317. The difference between training and test loss is 0.6247, indicating better generalisation compared to the Basic Model.
+The ResNet34 encoder used in Depth Anything V2 is more robust and pre-trained on ImageNet, allowing the model to extract complex features. This results in better depth maps with clearer edges and fewer artefacts. The combination of the U-Net architecture and ResNet34 backbone enhances both feature extraction and processing efficiency. While its test loss is slightly higher than that of the Basic Model, the visual quality of the generated depth maps is significantly better. This balance between training and test loss highlights Depth Anything V2 as a robust model suitable for real-world applications.
 
-For the ZoeDepth modell the training loss starts at 4.513 and decreases down to 1.7311, while the average test loss is 1,5679. Interestingly, ZoeDepth has the lowest test loss, although the training loss at the end is higher than for the other models.
-This suggests that ZoeDepth generalises best. It could be because the model was less overfitted during training and is therefore less specialised, but performs better on the test data.  ZoeDepth uses a possibly optimised U-Net architecture that promotes generalisation (e.g. special regularisation). It shows that the architecture and training strategy have a major influence on the generalisation capability.
+The training loss for *ZoeDepth* starts at 4.513 and decreases to 1.7311, with an average test loss of 1.5679—the lowest among all three models. Interestingly, ZoeDepth achieves the lowest test loss despite having a higher final training loss compared to the other models.
+This suggests that ZoeDepth generalises best. Its performance can be attributed to its optimised U-Net architecture, which likely incorporates special regularisation techniques to prevent overfitting. ZoeDepth demonstrates that architecture and training strategies significantly influence generalisation capability. However, despite its low test loss, the depth maps from ZoeDepth are not as detailed or precise as those generated by Depth Anything V2.
 
-To summarise, the comparison shows that a low training loss does not automatically mean the best performance. Models such as Depth Anything and ZoeDepth, which are designed for better generalisation, deliver the more convincing results both quantitatively (test loss) and qualitatively (depth maps). In this comparison, the Depth Anything V2 shows the best balance between test loss, generalisation capability and visual quality. Whilst ZoeDepth has the lowest test loss, Depth Anything V2 shows clearer and more detailed depth maps overall, which are very close to the true depth map. This makes it particularly suitable for applications where both precision and robustness are important.
+The comparison of the models shows that a low training loss does not necessarily translate to better performance. Depth Anything V2 and ZoeDepth, both designed for better generalisation, outperform the Basic Model both quantitatively (test loss) and qualitatively (depth maps). Among these, Depth Anything V2 demonstrates the best balance between test loss, generalisation, and visual quality. While ZoeDepth achieves the lowest test loss, Depth Anything V2 produces clearer and more detailed depth maps that closely match the true depth map, making it the most suitable choice for applications requiring both precision and robustness.
+
 
 .. image:: ../static/images/Trainingloss.png
     :alt: Training loss of the models
     :align: center
 
-Above we talked about the average test loss of all three models. This graphic shows the test losses of every batch from all three models compared to each other. It is interessting to see that the test losses have large shifts. The reason could be that the test data also includes various areas of NRW, like fields, forests, water and houses. It shows us that the models have different strengths. Unfortunatelly we did not look into the single batches to see what exact orthophotos were included, this would have not fitted in to our timetable. 
+
+Above, we discussed the average test losses of the three models. The following graph shows the test losses for each batch across all models, highlighting the fluctuations and variations.
 
 .. image:: ../static/images/TestLoss.png
     :alt: Test loss of the models
     :align: center
 
-The Basic model has relatively high fluctuations in test loss and largely remains above the values of the other models. The values are less stable and occasionally reach peaks of almost 2.5.
-Meanwhile, the Depth Anything V2 mode is more stable overall than the Basic model, but shows some fluctuations. The loss usually remains between 1.5 and 2.0 and is comparable to ZoeDepth.
-The ZoeDepth model has the lowest average loss and shows the smallest fluctuations in comparison. The test loss often remains close to or below 1.5.
 
-The Depth Anything V2 and ZoeDepth Model often have similar test losses, especially in the area between batch 10 and 30 where their curves overlap. However, the Depth Anything Model has a slight tendency towards higher fluctuations compared to ZoeDepth. The differences are particularly visible in batches 15-25, where ZoeDepth remains more stable. Nevertheless, both models remain close to each other. The Basic Model deviates significantly due to its high losses and instability.
+The graph reveals significant fluctuations in test losses across batches. This variability is likely due to the diverse test dataset, which includes various regions of NRW such as fields, forests, water bodies, and urban areas. This diversity demonstrates the models' varying strengths in handling different categories. Unfortunately, due to time constraints, we did not analyse the individual batches to identify the specific orthophotos that contributed to these variations.
+
+The *Basic Model* exhibits high fluctuations in test loss and generally remains above the values of the other models. Its instability is evident, with peaks reaching nearly 2.5.
+
+*Depth Anything V2* shows more stability compared to the Basic Model, but still exhibits some fluctuations. Its test loss typically ranges between 1.5 and 2.0, making it comparable to ZoeDepth in this range.
+
+*ZoeDepth* achieves the lowest average loss and exhibits the smallest fluctuations among the three models. Its test loss consistently remains around or below 1.5, indicating its superior stability.
+
+Depth Anything V2 and ZoeDepth often show similar test losses, particularly between batches 10 and 30, where their curves overlap. However, Depth Anything V2 tends to have slightly higher fluctuations, especially between batches 15 and 25, where ZoeDepth remains more stable. Despite these differences, both models perform significantly better than the Basic Model in terms of stability and test loss.
+
+The analysis highlights that Depth Anything V2 is the most balanced model, achieving a good trade-off between generalisation, test loss, and depth map quality. While ZoeDepth excels in achieving the lowest test loss and stability, Depth Anything V2 produces more detailed and accurate depth maps, making it better suited for applications where precision is critical. The Basic Model, despite its low training loss, performs the poorest due to its limited architecture and poor generalisation capabilities.
 
 **Depth Maps**
 
