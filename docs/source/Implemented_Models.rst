@@ -186,7 +186,7 @@ From the orthophotos and the true depth map, it can be observed that there are l
 
 The three models continue to exhibit the same characteristics as before. The *baseline model* is blurry, and objects often blend into one another. Nevertheless, the predicted heights are generally in the right range, and all major buildings and trees are visible.
 *Depth Anything V2* still performs the best in predicting heights. All objects are visible and clearly separated from each other. However, the model continues to struggle with roofs, which are not rendered continuously but appear patchy. Additionally, smaller trees or bushes are often missing.
-*ZoeDepth* remains effective at predicting height structures in trees but fails to capture some of the larger and very tall buildings in this depth map.
+*ZoeDepth* remains effective at predicting height structures in trees but fails to capture some of the larger and very tall buildings in this depth map. It is also noticeable here that the trees in the depth map are not excessively tall, as in all the others. 
 
 
 .. figure:: ../static/images/predicted_depth_map2_395000.0_5710000.0_part_0_3.png
@@ -201,7 +201,14 @@ The three models continue to exhibit the same characteristics as before. The *ba
 
     Depth Maps 9: Garden center 
 
-In the two images above there is industrial area and a garding center. 
+
+There is nothing new to mention about the *baseline model*. At the garden center in Depth Map 9, all the buildings are generally visible in the depth map and are mostly predicted at the correct height. However, the map remains blurry, and no details are discernible.
+In the industrial area of Depth Map 8, the baseline model struggles to represent the entire roof and only partially predicts the correct height.
+
+The *Depth Anything V2 model* shows a high level of detail and clear separations in Depth Map 9, although it has predicted some heights to be overly extreme. In Depth Map 8, it again struggles with representing a continuous roof surface, only reaching the correct height in very small patches. However, the model captures many details, such as the white transverse and longitudinal beams on the roof, as well as some of the vehicles in front of the hall. The two trains are only partially recognized, with a lack of clear boundaries. The trees are slightly overestimated in height, and the roof corner at the bottom left is barely identifiable.
+
+In the *ZoeDepth model*, the structures of the trees are again well-recognized in Depth Map 8, even though they are overall predicted to be too tall. The details of lorries and trains are also well-captured, in some cases even better than with Depth Anything V2. However, the large industrial building and the roof corner at the bottom left are either completely ignored or incorrectly predicted with a height of zero. In Depth Map 9, the model performs much better, showing more structural details. This improvement could be because ZoeDepth tends to overestimate heights compared to the True Depth Map, which allows smaller heights to appear more clearly. Nevertheless, some roofs, such as those in the top-left area, are still missing.
+
 
 .. figure:: ../static/images/predicted_depth_map2_315000.0_5729000.0_part_0_0.png
     :alt: Depth Maps of farms surrounded by fields
