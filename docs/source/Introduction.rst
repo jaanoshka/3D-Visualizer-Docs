@@ -23,26 +23,3 @@ The Greenventory GmbH (https://greenventory.de/) is a company committed to advan
 Integrating precise elevation data into Greenventory's existing models significantly enhances their ability to estimate energy-relevant building parameters. This includes the assessment of heating demand, the identification of building heights, and the potential for decentralized energy production (e.g., photovoltaic systems).
 
 The workflow developed in this project directly contributes to these goals by providing a scalable and accurate method for generating global elevation data from 2D images. This capability supports urban planning, improves energy efficiency predictions, and provides the foundation for developing smart, sustainable cities. Through this project, the integration of reliable 3D data becomes a powerful tool for both energy management and future-oriented urban development.
-
-.. toctree::
-   :maxdepth: 12
-   :hidden:
-
-   Introduction.rst
-   System_Overview.rst
-   Quickstart.rst
-   Data_Preprocessing.rst
-   Implemented_Models.rst
-   3D_Visualisation.rst
-   Backend_Development.rst
-   Frontend_Development.rst
-   Deployment.rst
-   Conclusion.rst
-
-
-License
--------
-
-**TerraVision** is licensed under the MIT License.
-
-For detailed documentation, visit: [https://terravision.readthedocs.io](https://terravision.readthedocs.io)
