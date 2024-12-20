@@ -120,24 +120,29 @@ The analysis highlights that Depth Anything V2 is the most balanced model, achie
 
 In the next step, we will look at the visualisation of the results. To have the best comparison, we chose various orthophotos from the test data set and are going to compare the depth maps of the three different models but also to the true depth map. The orthophots are meant to cover the biggest variety of areas in NRW.
 
-.. image:: ../static/images/predicted_depth_map2_516000.0_5759000.0_part_2_1.png
+.. figure:: ../static/images/predicted_depth_map2_516000.0_5759000.0_part_2_1.png
     :alt: Depth Maps of residential area
     :align: center
 
+    Depth Map 1: Residential area 
 
-.. image:: ../static/images/predicted_depth_map2_516000.0_5759000.0_part_0_1.png
+.. figure:: ../static/images/predicted_depth_map2_516000.0_5759000.0_part_0_1.png
     :alt: Depth Maps of residential area
     :align: center
 
+    Depth Map 2: Residential area 
 
-.. image:: ../static/images/predicted_depth_map2_498000.0_5749000.0_part_3_2.png
+.. figure:: ../static/images/predicted_depth_map2_498000.0_5749000.0_part_3_2.png
     :alt: Depth Maps of residential area
     :align: center
 
+    Depth Map 3: Residential area 
 
-.. image:: ../static/images/predicted_depth_map2_296000.0_5639000.0_part_0_0.png
+.. figure:: ../static/images/predicted_depth_map2_296000.0_5639000.0_part_0_0.png
     :alt: Depth Maps of residential area
     :align: center
+
+    Depth Map 4: Residential area 
 
 The four images above all show Depth Maps of residential areas, meaning a lot of single familiy homes without many nature in between. 
 
