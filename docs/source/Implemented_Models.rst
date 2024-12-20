@@ -124,64 +124,82 @@ In the next step, we will look at the visualisation of the results. To have the 
     :alt: Depth Maps of residential area
     :align: center
 
-    Depth Map 1: Residential area 
+    Depth Maps 1: Residential area 
 
 .. figure:: ../static/images/predicted_depth_map2_516000.0_5759000.0_part_0_1.png
     :alt: Depth Maps of residential area
     :align: center
 
-    Depth Map 2: Residential area 
+    Depth Maps 2: Residential area 
 
 .. figure:: ../static/images/predicted_depth_map2_498000.0_5749000.0_part_3_2.png
     :alt: Depth Maps of residential area
     :align: center
 
-    Depth Map 3: Residential area 
+    Depth Maps 3: Residential area 
 
 .. figure:: ../static/images/predicted_depth_map2_296000.0_5639000.0_part_0_0.png
     :alt: Depth Maps of residential area
     :align: center
 
-    Depth Map 4: Residential area 
+    Depth Maps 4: Residential area 
 
 The four images above all show Depth Maps of residential areas, meaning a lot of single familiy homes without many nature in between. 
 
-.. image:: ../static/images/predicted_depth_map2_313000.0_5645000.0_part_1_2.png
+The *Baseline Model* shows limited capability in capturing intricate details of residential areas. Its depth maps are often blurred, with poorly defined building edges and structures. Smaller features, such as vegetation or small buildings, are almost completely ignored, and the model struggles to differentiate slight variations in height. Buildings are not clearly separated from one another, and smaller height differences between elements like streets and structures are indistinguishable. These limitations make the Baseline Model inadequate for accurately representing residential areas.
+
+The *Depth Anything V2 model* demonstrates the ability to produce the most detailed and precise depth maps among the evaluated models. The structures in residential areas are sharply defined, with accurate depth gradients for larger features, such as rooftops. Fine-tuning has enhanced the model's capacity to capture subtle depth variations, leading to superior performance in complex scenes. While it correctly identifies height differences between streets and buildings, it struggles with smaller details, such as cars, garages, or low structures, which are often not represented. Additionally, in some cases, the model inconsistently applies height information across entire structures, leading to patchy results. For instance, in Depth Map 1, the elongated building at the bottom right is inaccurately represented at the highest parts of the roof underestimated. While the model handles large structures well, it struggles with gabled roofs and smaller architectural nuances.
+
+The *ZoeDepth model* provides detailed representations of structures such as buildings, streets, and vegetation, and its depth maps exhibit finer height differences for smaller features. It performs well in shadowed areas, where it often produces more accurate depth estimates. The model captures roof structures, including sloped roofs, with a higher degree of accuracy compared to other models. However, ZoeDepth tends to exaggerate height differences, resulting in a less realistic overall representation, as seen in Depth Map 3. In Depth Map 2, ZoeDepth fails to correctly identify or classify two tall buildings on the right-hand side, which are clearly visible in the True Depth Map. Additionally, while vegetation and smaller structures are rendered more realistically, transitions between high and low regions can appear abrupt. Height exaggeration and occasional artifacts, particularly in areas with trees, further diminish the model's alignment with reality.
+
+
+.. figure:: ../static/images/predicted_depth_map2_313000.0_5645000.0_part_1_2.png
     :alt: Depth Maps of suburbs
     :align: center
 
+    Depth Maps 5: Suburbs
 
- .. image:: ../static/images/predicted_depth_map2_291000.0_5652000.0_part_2_3.png
+ .. figure:: ../static/images/predicted_depth_map2_291000.0_5652000.0_part_2_3.png
     :alt: Depth Maps of suburbs
     :align: center
+
+    Depth Maps 6: Suburbs
 
 The two images of suburbs differ from the residential areas in the fact that there are trees, gardens and fields inbetween and around.
 
-.. image:: ../static/images/predicted_depth_map2_516000.0_5759000.0_part_0_3.png
+.. figure:: ../static/images/predicted_depth_map2_516000.0_5759000.0_part_0_3.png
     :alt: Depth Maps of larger buildings
     :align: center
 
+    Depth Maps 7: Campus of larger buildings
+
 From the orthophotos and the true depth map it can be seen that there are larger builings. It could be a campus of some sort like a university.
 
-.. image:: ../static/images/predicted_depth_map2_395000.0_5710000.0_part_0_3.png
+.. figure:: ../static/images/predicted_depth_map2_395000.0_5710000.0_part_0_3.png
     :alt: Depth Maps of industrial area
     :align: center
 
+    Depth Maps 8: Industrial area
 
-.. image:: ../static/images/predicted_depth_map2_302000.0_5733000.0_part_0_1.png
+.. figure:: ../static/images/predicted_depth_map2_302000.0_5733000.0_part_0_1.png
     :alt: Depth Maps of a garden centre
     :align: center
 
+    Depth Maps 9: Garden center 
+
 In the two images above there is industrial area and a garding center. 
 
-.. image:: ../static/images/predicted_depth_map2_315000.0_5729000.0_part_0_0.png
+.. figure:: ../static/images/predicted_depth_map2_315000.0_5729000.0_part_0_0.png
     :alt: Depth Maps of farms surrounded by fields
     :align: center
 
+    Depth Maps 10: Farms surrounded by fields
 
-.. image:: ../static/images/predicted_depth_map2_287000.0_5656000.0_part_1_0.png
+.. figure:: ../static/images/predicted_depth_map2_287000.0_5656000.0_part_1_0.png
     :alt: Depth Maps of fields
     :align: center
+
+    Depth Maps 11: Fields
 
 Once there are only fields and then also with two houses inbetween, that could be farms. 
 
