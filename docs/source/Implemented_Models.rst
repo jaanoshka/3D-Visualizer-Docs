@@ -20,7 +20,7 @@ Baseline Model
 ---------------
 *by Evalotta Horn*
 
-The baseline model serves as a reference for evaluating the performance and improvement of other models. It enables an objective assessment of the work. We selected a segmentation model from the PyTorch open-source machine learning library. The model follows a U-Net architecture and was implemented using the Segmentation Models PyTorch (smp) library, which specializes in image segmentation tasks. [#]_
+The baseline or basic model serves as a reference for evaluating the performance and improvement of other models. It enables an objective assessment of the work. We selected a segmentation model from the PyTorch open-source machine learning library. The model follows a U-Net architecture and was implemented using the Segmentation Models PyTorch (smp) library, which specializes in image segmentation tasks. [#]_
 
 .. code-block:: python
 
@@ -222,7 +222,13 @@ In the *ZoeDepth model*, the structures of the trees are again well-recognized i
 
     Depth Maps 11: Fields
 
-Once there are only fields and then also with two houses inbetween, that could be farms. 
+
+The *Basic Model* only shows the two houses and the trees in Depth Map 10 in a blurry manner. It struggles with details, particularly the tree border in the left corner and the one on the right side that stretches through the entire image from top to bottom (the latter is even difficult to discern in the True Depth Map but is very well visible in the ZoeDepth map). In Depth Map 11, it manages to represent the correct height of one field, albeit with blurry edges.
+
+The *Depth Anything V2 model* captures all objects in Depth Map 10 very well. However, it struggles to show clear structures within the tree crowns. Additionally, the height of the building in the top-left corner is slightly overestimated. In Depth Map 11, similar issues to those seen with rooftops arise. While it recognises the height at the corner of the field, the interior is either patchy or entirely absent, as is the case here.
+
+The *ZoeDepth model* clearly highlights the height differences between the farm buildings and the surrounding fields in Depth Map 10. However, it tends to exaggerate these differences, making the buildings, paths, and trees appear unrealistically tall in some areas. Furthermore, it predicts non-existent heights in the top-left corner of a field. In Depth Map 11, the field is shown with more detail and differentiation but is approximately nine metres too high.
+
 
 .. [#] Yang, L. et al. (2024) “Depth Anything V2.” Available at: http://arxiv.org/abs/2406.09414.
 .. [#] Lakubovskii, P. (2014) Segmentation Models’s . Available at: https://smp.readthedocs.io/en/latest/ (Accessed: December 11, 2024).
