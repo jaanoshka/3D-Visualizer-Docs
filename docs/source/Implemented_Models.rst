@@ -159,11 +159,13 @@ The *ZoeDepth model* provides detailed representations of structures such as bui
 
     Depth Maps 5: Suburbs
 
+
  .. figure:: ../static/images/predicted_depth_map2_291000.0_5652000.0_part_2_3.png
     :alt: Depth Maps of suburbs
     :align: center
 
     Depth Maps 6: Suburbs
+
 
 The two images of suburbs differ from the residential areas in the fact that there are trees, gardens and fields inbetween and around.
 
