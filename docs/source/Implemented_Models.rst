@@ -152,6 +152,19 @@ The *Depth Anything V2 model* demonstrates the ability to produce the most detai
 
 The *ZoeDepth model* provides detailed representations of structures such as buildings, streets, and vegetation, and its depth maps exhibit finer height differences for smaller features. It performs well in shadowed areas, where it often produces more accurate depth estimates. The model captures roof structures, including sloped roofs, with a higher degree of accuracy compared to other models. However, ZoeDepth tends to exaggerate height differences, resulting in a less realistic overall representation, as seen in Depth Map 3. In Depth Map 2, ZoeDepth fails to correctly identify or classify two tall buildings on the right-hand side, which are clearly visible in the True Depth Map. Additionally, while vegetation and smaller structures are rendered more realistically, transitions between high and low regions can appear abrupt. Height exaggeration and occasional artifacts, particularly in areas with trees, further diminish the model's alignment with reality.
 
+.. figure:: docs/static/images/predicted_depth_map2_313000.0_5645000.0_part_1_2.png
+    :alt: Depth Maps of residential area
+    :align: center
+
+    Depth Maps 3: Residential area 
+
+.. figure:: docs/static/images/predicted_depth_map2_296000.0_5639000.0_part_0_0.png
+    :alt: Depth Maps of residential area
+    :align: center
+
+    Depth Maps 4: Residential area 
+
+
 .. figure:: ../static/images/predicted_depth_map2_313000.0_5645000.0_part_1_2.png
     :alt: Depth Maps of suburbs
     :align: center
