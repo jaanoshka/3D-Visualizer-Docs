@@ -167,7 +167,14 @@ The *ZoeDepth model* provides detailed representations of structures such as bui
     Depth Maps 6: Suburbs
 
 
-The two images of suburbs differ from the residential areas in the fact that there are trees, gardens and fields inbetween and around.
+The two images of the suburbs differ from the residential areas that they are more rural, triggered by more trees, gardens and fields inbetween and around.
+
+The *baseline model* performs poorly once again. Similar to the residential areas, it remains blurred and inaccurate. Buildings and vegetation are barely distinguishable from each other, and the depth information appears overly smoothed.
+
+*Depth Anything V2* still struggles to recognise smaller vegetation, has difficulties with the slopes of pitched roofs, and slightly overestimates the height of trees. However, it demonstrates clear distinctions, as seen in Depth Map 5, where the small houses are clearly contrasted with the tall trees.
+
+*ZoeDepth* performs better in recognising height differences in tree structures and shows clear transitions between high and low areas. However, it tends to exaggerate heights, particularly with trees, which often appear taller than they actually are. It also struggles with the grassy area at the bottom centre of Depth Map 5, incorrectly estimating its height. Additionally, ZoeDepth has considerable difficulties in correctly capturing the height and shape of the roofs in Depth Map 6. Many roofs are either not recognised as elevated structures or appear flat and unrealistic. Instead of showing the slopes and height differences of gable roofs, ZoeDepth usually shows very low height values or even less height compared to the surrounding streets and gardens.
+
 
 .. figure:: ../static/images/predicted_depth_map2_516000.0_5759000.0_part_0_3.png
     :alt: Depth Maps of larger buildings
@@ -175,7 +182,12 @@ The two images of suburbs differ from the residential areas in the fact that the
 
     Depth Maps 7: Campus of larger buildings
 
-From the orthophotos and the true depth map it can be seen that there are larger builings. It could be a campus of some sort like a university.
+From the orthophotos and the true depth map, it can be observed that there are larger buildings, possibly part of a campus, such as a university.
+
+The three models continue to exhibit the same characteristics as before. The *baseline model* is blurry, and objects often blend into one another. Nevertheless, the predicted heights are generally in the right range, and all major buildings and trees are visible.
+*Depth Anything V2* still performs the best in predicting heights. All objects are visible and clearly separated from each other. However, the model continues to struggle with roofs, which are not rendered continuously but appear patchy. Additionally, smaller trees or bushes are often missing.
+*ZoeDepth* remains effective at predicting height structures in trees but fails to capture some of the larger and very tall buildings in this depth map.
+
 
 .. figure:: ../static/images/predicted_depth_map2_395000.0_5710000.0_part_0_3.png
     :alt: Depth Maps of industrial area
