@@ -125,6 +125,61 @@ In the next step, we will look at the visualisation of the results. To have the 
     :align: center
 
 
+.. image:: ../static/images/predicted_depth_map2_516000.0_5759000.0_part_0_1.png
+    :alt: Depth Maps of residential area
+    :align: center
+
+
+.. image:: ../static/images/predicted_depth_map2_498000.0_5749000.0_part_3_2.png
+    :alt: Depth Maps of residential area
+    :align: center
+
+
+.. image:: ../static/images/predicted_depth_map2_296000.0_5639000.0_part_0_0.png
+    :alt: Depth Maps of residential area
+    :align: center
+
+The four images above all show Depth Maps of residential areas, meaning a lot of single familiy homes without many nature in between. 
+
+.. image:: ../static/images/predicted_depth_map2_313000.0_5645000.0_part_1_2.png
+    :alt: Depth Maps of suburbs
+    :align: center
+
+
+ .. image:: ../static/images/predicted_depth_map2_291000.0_5652000.0_part_2_3.png
+    :alt: Depth Maps of suburbs
+    :align: center
+
+The two images of suburbs differ from the residential areas in the fact that there are trees, gardens and fields inbetween and around.
+
+.. image:: ../static/images/predicted_depth_map2_516000.0_5759000.0_part_0_3.png
+    :alt: Depth Maps of larger buildings
+    :align: center
+
+From the orthophotos and the true depth map it can be seen that there are larger builings. It could be a campus of some sort like a university.
+
+.. image:: ../static/images/predicted_depth_map2_395000.0_5710000.0_part_0_3.png
+    :alt: Depth Maps of industrial area
+    :align: center
+
+
+.. image:: ../static/images/predicted_depth_map2_302000.0_5733000.0_part_0_1.png
+    :alt: Depth Maps of a garden centre
+    :align: center
+
+In the two images above there is industrial area and a garding center. 
+
+.. image:: ../static/images/predicted_depth_map2_315000.0_5729000.0_part_0_0.png
+    :alt: Depth Maps of farms surrounded by fields
+    :align: center
+
+
+.. image:: ../static/images/predicted_depth_map2_287000.0_5656000.0_part_1_0.png
+    :alt: Depth Maps of fields
+    :align: center
+
+Once there are only fields and then also with two houses inbetween, that could be farms. 
+
 .. [#] Yang, L. et al. (2024) “Depth Anything V2.” Available at: http://arxiv.org/abs/2406.09414.
 .. [#] Lakubovskii, P. (2014) Segmentation Models’s . Available at: https://smp.readthedocs.io/en/latest/ (Accessed: December 11, 2024).
 .. [#] Howard, J. and Thomas, R. (no date) Welcome to fastai. Available at: https://docs.fast.ai (Accessed: December 18, 2024).
