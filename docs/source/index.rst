@@ -28,6 +28,7 @@ The workflow developed in this project directly contributes to these goals by pr
    :maxdepth: 12
    :hidden:
 
+   index "Introduction to TerraVision"
    System_Overview.rst
    Quickstart.rst
    Data_Preprocessing.rst

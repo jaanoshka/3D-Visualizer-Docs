@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'TerraVision'
+copyright = '2024, evalottaa, jaanoshka, JanSchittenhelm, Matthi419'
+author = 'Fabijanov, Jasmin; Horn, Evalotta; Schittenhelm, Jan; Surafial, Matthäus'
 
 release = '0.1'
 version = '0.1.0'
