@@ -118,7 +118,7 @@ The analysis highlights that Depth Anything V2 is the most balanced model, achie
 
 **Depth Maps**
 
-In the next step, we will look at the visualisation of the results. To have the best comparison, we chose various orthophotos from the test data set and are going to compare the depth maps of the three different models but also to the true depth map. The orthophots are meant to cover the biggest variety of areas in NRW.
+In the next step, we will look at the visualisation of the results. To have the best comparison, we chose various orthophotos from the test data set and are going to compare the depth maps of the three different models but also to the true depth map. The orthophotos are meant to cover the biggest variety of areas in NRW.
 
 .. figure:: ../static/images/predicted_depth_map2_516000.0_5759000.0_part_2_1.png
     :alt: Depth Maps of residential area
@@ -152,20 +152,17 @@ The *Depth Anything V2 model* demonstrates the ability to produce the most detai
 
 The *ZoeDepth model* provides detailed representations of structures such as buildings, streets, and vegetation, and its depth maps exhibit finer height differences for smaller features. It performs well in shadowed areas, where it often produces more accurate depth estimates. The model captures roof structures, including sloped roofs, with a higher degree of accuracy compared to other models. However, ZoeDepth tends to exaggerate height differences, resulting in a less realistic overall representation, as seen in Depth Map 3. In Depth Map 2, ZoeDepth fails to correctly identify or classify two tall buildings on the right-hand side, which are clearly visible in the True Depth Map. Additionally, while vegetation and smaller structures are rendered more realistically, transitions between high and low regions can appear abrupt. Height exaggeration and occasional artifacts, particularly in areas with trees, further diminish the model's alignment with reality.
 
-
 .. figure:: ../static/images/predicted_depth_map2_313000.0_5645000.0_part_1_2.png
     :alt: Depth Maps of suburbs
     :align: center
 
     Depth Maps 5: Suburbs
 
-
  .. figure:: ../static/images/predicted_depth_map2_291000.0_5652000.0_part_2_3.png
     :alt: Depth Maps of suburbs
     :align: center
 
     Depth Maps 6: Suburbs
-
 
 The two images of suburbs differ from the residential areas in the fact that there are trees, gardens and fields inbetween and around.
 
