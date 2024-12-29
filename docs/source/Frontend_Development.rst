@@ -17,6 +17,16 @@ The initial step involved creating basic layouts that reflected the key componen
 - **Usability**: The interface should be intuitive and easy to use.
 - **Aesthetics**: A modern and appealing design that reflects the purpose of the tool.
 
+Start Page
+----------
+
+The **Start Page** serves as the entry point of the application. It provides users with an intuitive and minimalistic interface to start creating 3D models. The page features a visually engaging background image and a clear call-to-action button labeled "LOS!" to guide users toward the next step. 
+
+![Start Page](path/to/start-page.png)
+
+This design focuses on simplicity, ensuring that users can quickly understand the purpose of the application and proceed without distractions.
+
+
 
 *by Jan Schittenhelm*
 
