@@ -1,5 +1,21 @@
 Frontend Development
-=====================
+
+This chapter explains how our frontend looks like and how we use it. Further, this chapter will describe how we started to develop the user interface and explains every single function.
+
+## The Beginnings: Conceptualization and Design of the Frontend
+
+Before the actual implementation began, it was essential to have a clear vision of how the frontend of the software tool should look and function. To achieve this, **Figma** was used, a tool for designing and prototyping user interfaces. 
+
+Figma allowed for rapid visualization of ideas and experimentation with different design options. Its collaborative features made it possible to gather early feedback from team members and ensure the design aligned with the project's requirements.
+
+### Getting Started with Figma
+
+The initial step involved creating basic layouts that reflected the key components and functionalities of the frontend. The following aspects were taken into account:
+
+- **Usability**: The interface should be intuitive and easy to use.
+- **Aesthetics**: A modern and appealing design that reflects the purpose of the tool.
+
+
 *by Jan Schittenhelm*
 
 Technology Stack
