@@ -1,4 +1,6 @@
 Frontend Development
+-----------------
+
 
 This chapter explains how our frontend looks like and how we use it. Further, this chapter will describe how we started to develop the user interface and explains every single function.
 
