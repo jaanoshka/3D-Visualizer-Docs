@@ -15,10 +15,7 @@ function Nav1(): JSX.Element {
           {/* Link to the "Create New" page */}
           <a href="/CreateNew">Create New</a>
         </li>
-        <li>
-          {/* Link to the "Open Model" page (currently without display text) */}
-          <a href="/OpenModel"></a>
-        </li>
+       
         <li>
           {/* Link to the "Create User" page (currently without display text) */}
           <a href="/CreateUser"></a>
@@ -27,11 +24,7 @@ function Nav1(): JSX.Element {
           {/* Link to the Satellite View page */}
           <a href="/View">Satelite View</a>
         </li>
-        <li>
-          {/* Link to the 3D Mesh View page */}
-          <a href="/View2">3D Mesh View</a>
-        </li>
-        <li>
+        
           {/* Link to another view page (currently without display text) */}
           <a href="/View3"></a>
         </li>
