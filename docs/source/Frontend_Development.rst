@@ -24,7 +24,7 @@ The **Start Page** serves as the entry point of the application. It provides use
 
 
 .. image:: ../static/images/FIGMAStart.png
-docs/static/images/FIGMAStart.png
+
 
 
 This design focuses on simplicity, ensuring that users can quickly understand the purpose of the application and proceed without distractions.
@@ -33,7 +33,7 @@ Menu Page
 ---------
 The **Menu Page** acts as the central hub for navigation within the application. It provides users with clear options to either create a new 3D model or open an existing one. The page uses a clean and organized layout, with easily recognizable buttons such as "Create New" and "Open Model."
 
-![Start Page](docs/static/images/FIGMAMenu.png)
+.. image:: ../static/images/FIGMAMenu.png
 
 This design ensures that users can quickly access their desired functionality, maintaining both usability and aesthetic appeal.
 
@@ -42,7 +42,7 @@ Create New Page
 
 The **Create New Page** allows users to input the necessary details to create a new 3D model. It features a clean and simple form where users can fill in fields such as:
 
-.. image:: docs/static/images/create-new-page.png
+.. image:: ../static/images/create-new-page.png
 
 - **City**: Specifies the location for the model.
 - **Street**: Provides additional address information.
