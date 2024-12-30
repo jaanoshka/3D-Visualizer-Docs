@@ -114,7 +114,7 @@ Adress Input
 -------------
 .. image:: ../static/images/REACT-INPUT.png
 
-Adress Input can be carried out by filling in all fields of the input-mask. When clicking on 
+Adress Input can be carried out by filling in all fields of the input-mask. When clicking on "Submit" a POST request will be send to backend with the address data (see CreateNew.tsx). 
 
 
 *by Jan Schittenhelm*
