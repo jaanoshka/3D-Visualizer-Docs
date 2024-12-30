@@ -22,9 +22,40 @@ Start Page
 
 The **Start Page** serves as the entry point of the application. It provides users with an intuitive and minimalistic interface to start creating 3D models. The page features a visually engaging background image and a clear call-to-action button labeled "LOS!" to guide users toward the next step. 
 
-![Start Page](docs/static/images/FIGMAStart.png)
+
+.. image:: docs/static/images/FIGMAStart.png
+
 
 This design focuses on simplicity, ensuring that users can quickly understand the purpose of the application and proceed without distractions.
+
+Menu Page
+---------
+The **Menu Page** acts as the central hub for navigation within the application. It provides users with clear options to either create a new 3D model or open an existing one. The page uses a clean and organized layout, with easily recognizable buttons such as "Create New" and "Open Model."
+
+![Start Page](docs/static/images/FIGMAMenu.png)
+
+This design ensures that users can quickly access their desired functionality, maintaining both usability and aesthetic appeal.
+
+Create New Page
+---------------
+
+The **Create New Page** allows users to input the necessary details to create a new 3D model. It features a clean and simple form where users can fill in fields such as:
+
+.. image:: docs/static/images/create-new-page.png
+
+- **City**: Specifies the location for the model.
+- **Street**: Provides additional address information.
+- **Zip Code**: Identifies the region for the model.
+- **UTM Coordinates**: Allows precise geospatial input for model creation.
+
+In the very beginning it was essential that this data is the key to command the backend from which area a 3D model should be generated.
+
+At the bottom of the form, there is an "Apply" button to submit the entered details and proceed to the next step. The design prioritizes clarity and ease of use, ensuring a smooth workflow for the user.
+
+Finally the user receives back a satelit picture of the chosen adress input and can create its 3D model:
+
+React 
+-----
 
 
 
