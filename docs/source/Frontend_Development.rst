@@ -56,10 +56,45 @@ At the bottom of the form, there is an "Apply" button to submit the entered deta
 Finally the user receives back a satelit picture of the chosen adress input and can create its 3D model:
 
 .. image:: ../static/images/FIGMASatelit.png
-.. image:: ../static/images/FIGMA3DModel.png
+.. image:: ../static/images/FIGMA3DModell.png
 
-React 
+React Technologies
 -----
+React was chosen as the frontend framework for this project due to its numerous advantages in building modern, scalable, and maintainable web applications. Combined with TypeScript, it provides an efficient development environment.
+
+Advantages of React
+-------------------
+
+1. **Component-Based Architecture**:  
+   React enables the creation of reusable, self-contained components. This makes the code modular and easier to maintain, as each component can be developed and tested independently.
+
+2. **Virtual DOM**:  
+   React's Virtual DOM optimizes rendering performance by efficiently updating only the parts of the user interface that have changed, resulting in a smoother user experience.
+
+3. **Large Ecosystem and Community Support**:  
+   With React being one of the most popular frontend frameworks, it has a vast ecosystem of libraries and tools, as well as extensive community support, ensuring that issues can be quickly resolved.
+
+4. **Declarative Syntax**:  
+   React's declarative syntax allows developers to describe the user interface clearly, making the code easier to read and debug.
+
+Advantages of TypeScript
+------------------------
+
+1. **Static Typing**:  
+   TypeScript adds static typing to JavaScript, reducing runtime errors by catching type-related bugs during development.
+
+2. **Improved Developer Productivity**:  
+   With TypeScript, features like autocompletion, code navigation, and refactoring become more robust, making the development process faster and more efficient.
+
+3. **Better Maintainability**:  
+   TypeScript enforces strong typing and clearer code structure, which makes the project easier to maintain, especially in large-scale applications.
+
+4. **Compatibility with React**:  
+   TypeScript integrates seamlessly with React, enabling type-safe components and props. This reduces potential issues when passing data between components.
+
+
+
+By using React with TypeScript, the project benefits from a modern, scalable, and developer-friendly environment. The combination enhances productivity, reduces errors, and ensures a high-quality codebase that is maintainable in the long run.
 
 
 
