@@ -121,9 +121,8 @@ Visualising 3D Model
 -------------
 .. image:: ../static/images/REACT-3DModel.png
 
-Inside the page "3D mesh View" the user can see the generated 3d Model of the slected adress. By using the mouse scroll bar it is possible to zoom in and out. Also when using key-left and key-right it is possible to rotate the model(see View3.tsx).
+Inside the page "3D mesh View" the user can see the generated 3d Model of the slected adress. By using the mouse scroll bar it is possible to zoom in and out. Also when using key-left and key-right it is possible to rotate the model (see View3.tsx and 3D_Visualisation.rst).
 
-*by Jan Schittenhelm*
 
 Technology Stack
 -----------------
