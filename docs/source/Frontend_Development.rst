@@ -42,7 +42,7 @@ Create New Page
 
 The **Create New Page** allows users to input the necessary details to create a new 3D model. It features a clean and simple form where users can fill in fields such as:
 
-.. image:: ../static/images/create-new-page.png
+.. image:: ../static/images/FIGMACreateNew.png
 
 - **City**: Specifies the location for the model.
 - **Street**: Provides additional address information.
@@ -54,6 +54,9 @@ In the very beginning it was essential that this data is the key to command the 
 At the bottom of the form, there is an "Apply" button to submit the entered details and proceed to the next step. The design prioritizes clarity and ease of use, ensuring a smooth workflow for the user.
 
 Finally the user receives back a satelit picture of the chosen adress input and can create its 3D model:
+
+.. image:: ../static/images/FIGMASatelit.png
+.. image:: ../static/images/FIGMA3DModel.png
 
 React 
 -----
