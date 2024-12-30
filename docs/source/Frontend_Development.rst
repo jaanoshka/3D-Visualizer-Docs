@@ -58,6 +58,8 @@ Finally the user receives back a satelit picture of the chosen adress input and 
 .. image:: ../static/images/FIGMASatelit.png
 .. image:: ../static/images/FIGMA3DModell.png
 
+Based on this FIGMA project, we developed our frontend as discussed below.
+
 React Technologies
 -----
 React was chosen as the frontend framework for this project due to its numerous advantages in building modern, scalable, and maintainable web applications. Combined with TypeScript, it provides an efficient development environment.
@@ -94,9 +96,18 @@ Advantages of TypeScript
 
 
 
-By using React with TypeScript, the project benefits from a modern, scalable, and developer-friendly environment. The combination enhances productivity, reduces errors, and ensures a high-quality codebase that is maintainable in the long run.
+By using React with TypeScript, the project benefits from a modern, scalable, and developer-friendly environment. The combination enhances productivity, reduces errors, and ensures a high-quality codebase that is maintainable in the long run. In the following section below, results are presented.
 
 
+Home Screen
+-----------
+.. image:: ../static/images/REACT-HOME.png
+
+Main purpose of the home-screen is to welcome the user and introduce him to the application.
+Inside the image above, all interacttive fields are colored red. On the top the user will find a navigation bar with several functions (see).
+To reach the adress-input mask the user can click on "Create New" or the "Start" button in the center.
+If "Satelite View" is clicked, the user can receive a preview of the satelite picture to the entered adress data.
+To see the 3D Model, "3D Mesh View" has to be selected. Next the logos of University Würzburg and our partner Greenventory can be clicked to reach their websites for futher info. 
 
 *by Jan Schittenhelm*
 
