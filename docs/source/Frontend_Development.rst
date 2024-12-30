@@ -99,6 +99,100 @@ Advantages of TypeScript
 
 By using React with TypeScript, the project benefits from a modern, scalable, and developer-friendly environment. The combination enhances productivity, reduces errors, and ensures a high-quality codebase that is maintainable in the long run. In the following section below, results are presented.
 
+How to Start the React Frontend
+===============================
+
+This section explains how to set up and start the React frontend application for development purposes. Follow the steps below to get the application running locally on your machine.
+
+Prerequisites
+-------------
+
+Before starting the React frontend, ensure the following prerequisites are met:
+
+1. **Node.js**:  
+   Install Node.js (LTS version recommended) from the official website:  
+   https://nodejs.org/
+
+2. **npm or yarn**:  
+   Node.js comes with npm (Node Package Manager) preinstalled. Alternatively, you can use yarn as a package manager, which can be installed by running:
+
+   .. code-block:: bash
+
+      npm install --global yarn
+
+3. **Code Editor**:  
+   Install a code editor such as Visual Studio Code (VS Code) for managing and editing the project files.
+
+Setting Up the Project
+----------------------
+
+To set up the React frontend project, follow these steps:
+
+1. **Clone the Repository**:  
+   Clone the repository to your local machine using Git:
+
+   .. code-block:: bash
+
+      git clone <repository-url>
+
+2. **Navigate to the Project Directory**:  
+   Move into the project folder:
+
+   .. code-block:: bash
+
+      cd <3D-Visualizer-4>
+      cd <frontend>
+
+3. **Install Dependencies**:  
+   Install the necessary dependencies for the project using npm or yarn:
+
+   .. code-block:: bash
+
+      npm install
+
+   Or, if you are using yarn:
+
+   .. code-block:: bash
+
+      yarn install
+
+Starting the Development Server
+-------------------------------
+
+Once the dependencies are installed, you can start the React development server:
+
+1. **Run the Development Server**:  
+   Use the following command to start the application in development mode:
+
+   .. code-block:: bash
+
+      npm start
+
+   Or, if you are using yarn:
+
+   .. code-block:: bash
+
+      yarn start
+
+2. **Access the Application**:  
+   After the server starts, the application will be available in your default web browser at:
+
+   .. code-block:: text
+
+      http://localhost:3000
+
+   If the browser does not open automatically, you can manually navigate to this URL.
+
+Troubleshooting
+---------------
+
+- **Port Already in Use**:  
+  If port `3000` is already in use, the terminal will prompt you to use another port. Press `Y` to confirm.
+
+- **Dependency Issues**:  
+  If you encounter issues while installing dependencies,
+
+
 
 Home Screen
 -----------
