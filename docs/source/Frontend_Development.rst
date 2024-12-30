@@ -23,7 +23,8 @@ Start Page
 The **Start Page** serves as the entry point of the application. It provides users with an intuitive and minimalistic interface to start creating 3D models. The page features a visually engaging background image and a clear call-to-action button labeled "LOS!" to guide users toward the next step. 
 
 
-.. image:: docs/static/images/FIGMAStart.png
+.. image:: ../static/images/FIGMAStart.png
+docs/static/images/FIGMAStart.png
 
 
 This design focuses on simplicity, ensuring that users can quickly understand the purpose of the application and proceed without distractions.
