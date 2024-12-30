@@ -100,7 +100,7 @@ Advantages of TypeScript
 By using React with TypeScript, the project benefits from a modern, scalable, and developer-friendly environment. The combination enhances productivity, reduces errors, and ensures a high-quality codebase that is maintainable in the long run. In the following section below, results are presented.
 
 How to Start the React Frontend
-===============================
+-------------------------------
 
 This section explains how to set up and start the React frontend application for development purposes. Follow the steps below to get the application running locally on your machine.
 
