@@ -28,23 +28,7 @@ function App() {
     case "/CreateNew":
       Component = <CreateNew />; // Load the "CreateNew" page component
       break;
-    case "/OpenModel":
-      Component = <OpenModel />; // Load the "OpenModel" page component
-      break;
-    case "/CreateUser":
-      Component = <CreateUser />; // Load the "CreateUser" page component
-      break;
-    case "/View":
-      Component = <View />; // Load the "View" page component
-      break;
-    case "/View2":
-      Component = (
-        <ErrorBoundary>
-          {/* Wrap "View2" component with an error boundary */}
-          <View2 />
-        </ErrorBoundary>
-      );
-      break;
+    
     case "/View3":
       Component = (
         <ErrorBoundary>
