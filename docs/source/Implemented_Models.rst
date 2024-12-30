@@ -16,6 +16,72 @@ Zoe Depth
 ----------
 *by Matthäus Surafial*
 
+ZoeDepth is an advanced monocular depth estimation model specifically designed to extract precise depth information from single images. It also represents an alternative to the Depth Anything model for this project as it is designed to estimate absolute depth values. The model combines deep learning algorithms with additional LiDAR data to improve the accuracy of depth estimates. [#]_ This innovative combination enables high reliability in applications ranging from autonomous driving to robotics to mapping. We came across the model after an extensive search of the literature and open source sources.
+
+ZoeDepth is a promising choice for depth estimation from an image for several reasons:
+
+- **Zero-shot transfer:** ZoeDepth is designed to enable zero-shot transfer, meaning that the model is able to provide accurate depth estimates even when tested on new, previously unseen data. This is particularly useful as it reduces the need to retrain the model for each new application. Instead, it can generalize well on different datasets without the need for extensive fine-tuning.
+
+- **Combination of relative and metric depth:** A standout feature of ZoeDepth is its ability to provide both relative and metric depth estimates. This combination provides greater flexibility as relative depth describes depth ratios in the image while metric depth quantifies absolute distances of objects in space.
+
+- **Based on an encoder-decoder approach (with U-Net-like architecture):** ZoeDepth uses an architecture that includes elements of U-Net, a well-known architecture for image segmentation. This encoder-decoder approach allows the model to process image information at different levels of abstraction, making it able to generate accurate depth maps. The decoder part ensures that the depth estimates are recovered in high resolution, leading to more accurate results.
+
+- **Efficient handling of monocular (single) images:** ZoeDepth is specifically designed for depth estimation from single images (monocular depth estimation), which distinguishes it from other models that may rely on stereoscopic or LiDAR data. This makes it a practical solution for applications where only a single image is available as input, such as in many real-world image processing and computer vision scenarios.
+
+- **Using Vision Transformers (ViT):** The combination of Vision Transformer (ViT) as a backbone and a U-Net-like decoder allows ZoeDepth to extract deeper and more relevant features from the input images. ViT has proven to be particularly powerful in processing image data, especially for more complex tasks such as depth estimation.
+
+The pre-trained ZoeDepth model is loaded from the Hugging Face model library
+
+.. code-block:: python
+
+    model = ZoeDepthForDepthEstimation.from_pretrained("Intel/zoedepth-nyu-kitti")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model.to(device)  
+    optimizer = AdamW(model.parameters(), lr=1e-5)
+
+The .from_pretrained() function loads the pre-trained parameters and the architecture of the model. It then checks if a GPU is available to move the model to the GPU for faster computations. AdamW is used as the optimizer because it reduces overfitting through weight decay and has proven itself in deep learning models such as ZoeDepth. ZoeDepth's architecture is based on the Vision Transformer (ViT) as a backbone, embedded in a depth estimation structure to estimate both relative and metric depth information.
+
+ZoeDepth actually uses an architecture based on an encoder-decoder approach, similar to the traditional U-Net model, to extract precise depth estimates from monocular images. The encoder-decoder approach is realized here by combining a Vision Transformer (ViT) and the typical features of U-Net. The U-Net-like decoder guides the model to reconstruct the depth map in high resolution.
+
+.. code-block:: python
+
+    for epoch in range(num_epochs):
+        total_train_loss = 0
+
+        for images, depths in tqdm(train_loader, desc=f'Epoch {epoch + 1}/{num_epochs}'):
+            optimizer.zero_grad()
+
+            images = images.to(device)
+            depths = depths.to(device)
+
+            outputs = model(images).predicted_depth
+
+            if outputs.dim() == 3:
+                outputs = outputs.unsqueeze(1)
+
+            depths = depths.squeeze(2)
+
+            loss = F.l1_loss(outputs, depths.float())
+            loss.backward()
+            optimizer.step()
+
+            total_train_loss += loss.item()
+
+        avg_train_loss = total_train_loss / len(train_loader)
+        train_losses.append(avg_train_loss)
+        print(f"Epoch [{epoch + 1}/{num_epochs}], Loss: {avg_train_loss:.4f}")
+
+        scheduler.step()
+
+The training process starts by running a predefined number of epochs, with each epoch representing a complete pass through the training data. The training data is processed in batches that run through the model one after the other to gradually optimize the model parameters. At the beginning of each iteration within an epoch, the input images and the associated depth maps are loaded from the DataLoader and transferred to the computing device used (e.g. GPU).
+
+Before the gradients are calculated, the optimizer is reset with optimizer.zero_grad() to ensure that no gradients from previous iterations are accumulated. The model then processes the input images and outputs the predicted depth maps, which are stored in the predicted_depth attribute. In case the dimensions of the outputs do not match the expected dimensions, they are adjusted using unsqueeze(1) to ensure compatibility with the ground truth data.
+
+To calculate the error, the Mean Absolute Error (MAE) function implemented by F.l1_loss is used. This function measures the average absolute difference between the predicted and actual depth maps. MAE is chosen for its robustness to outliers, making the model less sensitive to large errors. After the loss calculation, backpropagation occurs, which calculates the gradients of the model parameters. Then an update of the parameters is performed by the optimizer.step() step.
+
+The loss value for each batch is accumulated in a variable that stores the total loss of the current epoch. At the end of each epoch, the average loss is calculated by dividing the total loss by the number of batches. This value is stored and output to monitor the progress of the model. To ensure stable convergence of the model, the learning rate scheduler is called after each epoch with scheduler.step(), which reduces the learning rate according to a predefined scheme.
+
+
 Baseline Model 
 ---------------
 *by Evalotta Horn*
@@ -231,5 +297,6 @@ The *ZoeDepth model* clearly highlights the height differences between the farm 
 
 
 .. [#] Yang, L. et al. (2024) “Depth Anything V2.” Available at: http://arxiv.org/abs/2406.09414.
+.. [#] Bhat, S.et al. (2023). ZoeDepth: Zero-shot Transfer by Combining Relative and Metric Depth. Available at: https://arxiv.org/pdf/2302.12288 
 .. [#] Lakubovskii, P. (2014) Segmentation Models’s . Available at: https://smp.readthedocs.io/en/latest/ (Accessed: December 11, 2024).
 .. [#] Howard, J. and Thomas, R. (no date) Welcome to fastai. Available at: https://docs.fast.ai (Accessed: December 18, 2024).
