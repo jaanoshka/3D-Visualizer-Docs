@@ -107,7 +107,8 @@ Main purpose of the home-screen is to welcome the user and introduce him to the 
 Inside the image above, all interacttive fields are colored red. On the top the user will find a navigation bar with several functions (see).
 To reach the adress-input mask the user can click on "Create New" or the "Start" button in the center.
 If "Satelite View" is clicked, the user can receive a preview of the satelite picture to the entered adress data.
-To see the 3D Model, "3D Mesh View" has to be selected. Next the logos of University Würzburg and our partner Greenventory can be clicked to reach their websites for futher info. 
+To see the 3D Model, "3D Mesh View" has to be selected. Next the logos of University Würzburg and our partner Greenventory can be clicked to reach their websites for futher info.
+On the right-down corner, the user can view a video-clip which summarizes main function of our frontend shortly.
 
 *by Jan Schittenhelm*
 
