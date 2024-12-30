@@ -116,6 +116,11 @@ Adress Input
 
 Adress Input can be carried out by filling in all fields of the input-mask. When clicking on "Submit" a POST request will be send to backend with the address data (see CreateNew.tsx). 
 
+Visualising 3D Model 
+-------------
+.. image:: ../static/images/REACT-3DModel.png
+
+Inside the page "3D mesh View" the user can see the generated 3d Model of the slected adress. By using the mouse scroll bar it is possible to zoom in and out. Also when using key-left and key-right it is possible to rotate the model(see View3.tsx).
 
 *by Jan Schittenhelm*
 
