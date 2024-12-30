@@ -95,6 +95,51 @@ The function generates a polygon mesh consisting of triangles from the point clo
 
 Interactive visualisation
 --------------------------
+To visualise our 3D models we decided to use "React Three Fiber" and Three.js.
+
+React Three Fiber
+-----------------
+
+React Three Fiber (R3F) is a React-based library that acts as a bridge to Three.js, allowing developers to create 3D scenes and visualizations using React's component-based architecture. It integrates Three.js into React applications seamlessly, enabling the use of familiar React patterns for managing complex 3D content.
+
+Key Features of React Three Fiber:
+- **Declarative Approach**: React Three Fiber uses React's declarative style to describe 3D scenes, making it easier to build and manage complex hierarchies of objects.
+- **Reactivity**: State and props in React can be used to dynamically update 3D scenes, creating interactive and responsive visualizations.
+- **Integration with React Ecosystem**: React Three Fiber supports React's lifecycle methods, hooks, and context, allowing seamless integration with other React libraries and tools.
+- **Rich Ecosystem**: It includes additional utilities, such as `@react-three/drei`, which provides prebuilt components like `OrbitControls`, `GLTFLoader`, and more to simplify common 3D tasks.
+
+React Three Fiber simplifies the process of developing 3D applications for web-based platforms by enabling developers to focus on the creative and functional aspects of their scenes without dealing with the lower-level complexities of Three.js.
+
+Three.js
+--------
+
+Three.js is a low-level JavaScript library for creating and rendering 3D graphics in web applications. It provides a powerful abstraction over WebGL, the browser's graphics API, making 3D development more accessible for developers.
+
+Key Features of Three.js:
+- **Scene Graph**: Three.js uses a scene graph to organize and manage 3D objects, lights, cameras, and other elements within a virtual environment.
+- **Wide Range of 3D Primitives**: It offers prebuilt 3D objects such as cubes, spheres, planes, and more, which can be combined to build complex scenes.
+- **Materials and Textures**: Three.js supports a variety of materials and textures for realistic rendering, including `MeshStandardMaterial`, `MeshPhongMaterial`, and PBR (Physically Based Rendering) materials.
+- **Lighting and Shadows**: With Three.js, developers can implement various lighting models (ambient, directional, spotlights) and realistic shadows.
+- **Animation System**: It includes an animation system for keyframe animations, skeletal animations, and morph targets.
+- **Advanced Features**: Three.js supports complex effects such as particle systems, postprocessing, environment mapping, and more.
+- **File Format Support**: It can parse and render various 3D file formats, such as `.obj`, `.gltf`, `.ply`, and more, allowing seamless integration of models created in external 3D software.
+
+Comparison and Use Cases
+------------------------
+
+While Three.js is a lower-level library providing granular control over 3D scenes, React Three Fiber abstracts this complexity and allows developers to use React's declarative syntax. Together, they enable developers to build sophisticated 3D web applications efficiently.
+
+React Three Fiber is particularly useful for:
+- Building interactive 3D web applications in React projects.
+- Simplifying the development process for teams already familiar with React.
+- Rapid prototyping of 3D visualizations.
+
+Three.js is suitable for:
+- Projects requiring fine-grained control over 3D rendering.
+- Applications where React is not used, or performance optimizations at the WebGL level are critical.
+
+
+
 *by Jan Schittenhelm*
 
 Tools: React, Three.js, @react-three/fibre
