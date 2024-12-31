@@ -5,12 +5,12 @@ Quickstart
 Getting started - Development Setup
 ------------------------------------
 
-### Prerequisites
+**Prerequisites**
 - Python 3.10 or later
 - Node.js and npm
 - Google Maps API key
 
-### Backend Setup
+**Backend Setup**
 1. Clone the repository.
 2. Create a virtual environment:
    ```bash
@@ -32,7 +32,7 @@ Getting started - Development Setup
    flask run
    ```
 
-### Frontend Setup
+**Frontend Setup**
 1. Navigate to the `frontend` directory.
 2. Install dependencies:
    ```bash
@@ -43,7 +43,8 @@ Getting started - Development Setup
    npm run dev
    ```
 
-## Starting the Whole Application Using the Docker Engine
+Starting the Whole Application Using the Docker Engine
+------------------------------------------------------
 
 Next to starting the backend and frontend seperately by running 'flask run' and 'npm run dev' you can also start the entire project by running 'docker compose up --build'
 

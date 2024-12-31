@@ -8,7 +8,8 @@ The 3D visualization is based on the depth predictions genrated by three differe
 
 Check out the \:doc:`Models` section for further information, including how to \:ref:`installation` the project.
 
-## Features of Terravision
+Features of Terravision
+-----------------------
 
 **Address-Based Data Retrieval**
 This feature is the starting point for the whole application. The address input field is located on the front page of the application. 
@@ -55,11 +56,12 @@ The file name of each element is specified by the corresponding address and the 
    </video>
 
 
-## System Architecture
+System Architecture
+---------------------
 
 The architecture of the application consists of a backend and frontend and is deployed for cross-plattform accessibility using Docker.
 
-### Backend Libraries and Services Used
+**Backend Libraries and Services Used**
 
 - **Flask**: RESTful API development.
 - **Open3D**: 3D mesh and point cloud processing.
@@ -67,7 +69,7 @@ The architecture of the application consists of a backend and frontend and is de
 - **Segmentation Models PyTorch (SMP)**: Used for Unet Baseline depth prediction.
 - **Google Maps APIs**: Retrieves satellite imagery and geocodes the address into coordinates.
 
-### Frontend Frameworks Used
+**Frontend Frameworks Used**
 
 - **React**: Interactive and responsive UI.
 - **React Router**: Handles navigation between views.

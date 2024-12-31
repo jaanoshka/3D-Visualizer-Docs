@@ -4,12 +4,11 @@ Backend Development
 
 The backend was envisioned as a RESTful API service that integrates various geospatial processing functionalities, including depth map prediction, 3D mesh generation, and volumetric analysis. To ensure modularity, the backend was organized into components known as Flask blueprints, each responsible for a specific feature. This modular structure facilitated code reusability, simplified debugging, and allowed independent development of components such as mesh generation, depth prediction, and geospatial computations.
 
-A media directory was established to manage generated files, such as satellite images, depth maps, and 3D mesh files. This directory would be used for storing both intermediate and final results, ensuring traceability and reproducibility of outputs. Furthermore, external APIs, such as the Google Maps API for geocoding and satellite imagery, and OpenStreetMap (OSM) for geospatial data, were integrated to enrich the backend's functionality.
+Blueprints and Their Roles
 --------------------
+A media directory was established to manage generated files, such as satellite images, depth maps, and 3D mesh files. This directory would be used for storing both intermediate and final results, ensuring traceability and reproducibility of outputs. Furthermore, external APIs, such as the Google Maps API for geocoding and satellite imagery, and OpenStreetMap (OSM) for geospatial data, were integrated to enrich the backend's functionality.
 
-### **Blueprints and Their Roles**
-
-#### 1. **Image Blueprint**
+1. **Image Blueprint**
 This module is responsible for fetching and processing satellite imagery. Its primary functionality includes:
 - **Fetching Satellite Images:** It uses Google Maps Static API to retrieve high-resolution satellite images for a given address. The fetched images are cropped to remove watermarks, resized, and saved in JPEG format.
 - **Bounding Box Calculations:** Based on latitude, longitude, and image dimensions, it calculates bounding boxes to extract geospatial data, ensuring precise mapping of imagery to real-world coordinates.
@@ -27,9 +26,9 @@ This module encapsulates the machine learning models used for depth prediction:
 - **Model Loading and Initialization:** It initializes and loads pre-trained weights for Depth Anything V2, Unet Baseline and Zoe Depth. These models leverage state-of-the-art architectures like ResNet and transformer-based approaches.
 - **Depth Prediction Methods:** For each supported model, there is a dedicated method that preprocesses satellite images, performs inference to generate depth maps, and ensures compatibility with downstream modules by sizing the image according to the models requirements.
 
----
 
-### **Interactions and Workflow**
+Interactions and Workflow
+-------------------------
 
 1. **Input: Address from User**
    - A user provides an address through the frontend interface.
@@ -50,25 +49,20 @@ This module encapsulates the machine learning models used for depth prediction:
 API Endpoints
 -------------
 
-### `/mesh/image/<string:address>`
+`/mesh/image/<string:address>`
 - **Method**: GET
 - **Description**: Fetches and processes the satellite image for a given address.
 
-### `/mesh/depth/<string:address>/<string:model>`
+`/mesh/depth/<string:address>/<string:model>`
 - **Method**: GET
 - **Description**: Generates a depth map for the given address and model.
 
-### `/mesh/ply/<string:address>/<string:model>`
+`/mesh/ply/<string:address>/<string:model>`
 - **Method**: GET
 - **Description**: Creates a 3D mesh from the depth map for the specified address and model.
 
-### `/image/volume/<string:address>/<string:model>`
+`/image/volume/<string:address>/<string:model>`
 DISCLAIMER: This function is deactivated in the application due to unprecise depth estimations resulting in misscalculated volumes.
 - **Method**: GET
 - **Description**: Calculates total building volume and footprint area in a bounding box around the given address.
  
-
-### Other Tools and Libraries
-- **NumPy**: Numerical data manipulation.
-- **Pandas**: Dataframe processing for geospatial data.
-- **Matplotlib**: Depth map visualization.
