@@ -16,7 +16,9 @@ Zoe Depth
 ----------
 *by Matthäus Surafial*
 
-ZoeDepth is an advanced monocular depth estimation model specifically designed to extract precise depth information from single images. It also represents an alternative to the Depth Anything model for this project as it is designed to estimate absolute depth values. The model combines deep learning algorithms with additional LiDAR data to improve the accuracy of depth estimates. [#]_ This innovative combination enables high reliability in applications ranging from autonomous driving to robotics to mapping. We came across the model after an extensive search of the literature and open source sources.
+ZoeDepth is an advanced monocular depth estimation model specifically designed to extract precise depth information from single images. It also represents an alternative to the Depth Anything model for this project as it is designed to estimate absolute depth values. The model combines deep learning algorithms with additional LiDAR data to improve the accuracy of depth estimates. [#]_ This innovative combination enables high reliability in applications ranging from autonomous driving to robotics to mapping. We came across the model after an extensive search of the literature.
+
+Before this model was selected for the project, other models were tried, including Monodepth 2. However, these models were rejected after several attempts for several reasons, including similarity to Depth Anything or the fact that some models only perform relative depth estimation and thus were not considered for the project.
 
 ZoeDepth is a promising choice for depth estimation from an image for several reasons:
 
