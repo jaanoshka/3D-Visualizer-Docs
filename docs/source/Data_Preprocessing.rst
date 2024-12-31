@@ -1,22 +1,72 @@
-Data Preprocessing
-===================
-Data Source 
-------------
+Data Collection and Preprocessing for Depth Prediction from Satellite Imagery
+==================
+
+1. Data Collection
+---------------------
 *by Jasmin Fabijanov*
 
-OpenNRW 
-Data from the website (Google Maps API, OpenStreetMap)
+**1.1. Data Sources**
+The datasets utilized was sourced from Open Data NRW (Link hier), which provides extensive geospatial data, including high-resolution satellite imagery and corresponding LiDAR-derived depth information. These datasets were chosen for their coverage and precision, suitable for depth estimation tasks.
 
-Trimming and pre-processing
-----------------------------
+**1.2. Data Types**
+The collected data includes a random sample of 1,000 entries of:
+- **Satellite Images**: High-resolution normalized RGB imagery with georeferenced metadata.
+- **LiDAR Data**: Point cloud files in `.tif` format containing precise altitude measurements, already preprocessed by providing the height of a pixel from ground to object height instead of from LiDAR sensor to object height.
+
+**1.3. Data Collection**
+
+Satellite images and LiDAR files were scraped using scripts that automate the retrieval process:
+First, the file names are saved in a dataframe with the date and the cooresponding northing and easting coordinates are extracted from the file names and saved in two separate dataframes, one for the LiDAR files and one for the images.
+Finally, the two separate dataframes are merged on the date column. 
+
+
+2.  Data Preprocessing
+---------------------
 *by Jasmin Fabijanov*
 
-Matching of orthophoto and LiDAR data
---------------------------------------
+**2.1. Rescaling Images**
+High-resolution satellite images are resized from 10 centimeters per pixel to 50 centimeters per pixel to match the resolution of the LiDAR files. 
+This step is performed using a custom function, downsample_image, which calculates the new dimensions of each image based on the scale of the LiDAR files. 
+
+**2.2. Resizing Images**
+All satellite images and depth maps were resized to a fixed dimension of 518x518 pixels. This resolution was chosen on the one hand to balance computational efficiency with sufficient detail for depth estimation. 
+On the other hand, the size of 518x518 was chosen because that's the required input size of the Depth anything V2 model, which was the first model to be implemented
+
+**2.3. Handling Missing Values in LiDAR Files**
+Cubic interpolation was performed to estimate missing values within the LiDAR data. A custom method identifies valid (non-NaN) points and missing (NaN) points using boolean masks.
+Using the valid points as references, it applies cubic interpolation (scipy.interpolate.griddata) to fill the gaps in the grid.
+The interpolated grid is then returned, ensuring that it is complete and ready for further processing. This step is essential for ensuring that depth maps derived from LiDAR data are accurate and free of artifacts.
+
+**2.4. Data Downloading**
+To acquire the necessary data, satellite images and LiDAR grids are downloaded from specified URLs:
+- **Satellite Images:** Images are downloaded using the requests.get method and opened with Image.open. This ensures compatibility with downstream operations.
+- **LiDAR Data:** LiDAR grids, stored as TIFF files, are downloaded and read using the rasterio library. The elevation data is extracted from the first band and converted to a NumPy array for further manipulation.
+
+
+3. Processing Loop for Data Preparation
+---------------------
 *by Jasmin Fabijanov*
 
-Indices
----------
+The main processing loop iterates through each sampled data entry and performs the following steps:
+
+**3.1. Image Processing:**
+The satellite image is downloaded, resized using the downsample_image function, and converted to RGB format (if not already in RGB). These steps standardize the image data and ensure compatibility with the model.
+
+**3.2. LiDAR Processing:**
+The LiDAR grid is downloaded, missing values are interpolated using the fill_nan_with_interpolation function, and the grid is rescaled to match the image resolution.
+
+**3.3. Validation:**
+The dimensions of the processed image and the LiDAR grid are compared to ensure alignment. This validation step ensures spatial consistency across the dataset.
+
+**3.4. Data Partitioning:**
+The image and the LiDAR grid are divided into smaller parts for efficient processing. For instance, each is partitioned into a 4×4 grid, resulting in 16 smaller sections per image and grid. The partitioning dimensions are calculated based on the overall size of the data.
+
+**3.5. Saving Outputs**
+The processed image parts are saved as high-quality JPEG files using img.save, while the corresponding LiDAR grid parts are saved as .npy files using np.save. The filenames incorporate metadata (easting & northing coordinates) and partition indices to uniquely identify each segment. This naming convention facilitates easy retrieval and organization of the data.
+
+
+4. Indices for Consistent Training Dataset for all Models
+---------------------
 *by Evalotta Horn*
 
 After the dataset was created, which included the prepared orthophotos and corresponding LiDAR data, two lists of indices were generated to manage the data split.

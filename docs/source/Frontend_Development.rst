@@ -2,7 +2,10 @@ Frontend Documentation
 ======================
 *by Jan Schittenhelm*
 
-This chapter explains how our frontend looks like and how we use it. Further, this chapter will describe how we started to develop the user interface and explains every single function.
+This chapter explains how our frontend looks like and how we use it. Further, this chapter will describe how we started to developed the user interface and explains every single function.
+
+First, the early development process of the frontend is explained in detail.
+
 
 The Beginnings: Conceptualization and Design of the Frontend
 ------------------------------------------------------------
@@ -95,128 +98,7 @@ Advantages of TypeScript
 4. **Compatibility with React**:  
    TypeScript integrates seamlessly with React, enabling type-safe components and props. This reduces potential issues when passing data between components.
 
-
-
 By using React with TypeScript, the project benefits from a modern, scalable, and developer-friendly environment. The combination enhances productivity, reduces errors, and ensures a high-quality codebase that is maintainable in the long run. In the following section below, results are presented.
-
-How to Start the React Frontend
--------------------------------
-
-This section explains how to set up and start the React frontend application for development purposes. Follow the steps below to get the application running locally on your machine.
-
-Prerequisites
--------------
-
-Before starting the React frontend, ensure the following prerequisites are met:
-
-1. **Node.js**:  
-   Install Node.js (LTS version recommended) from the official website:  
-   https://nodejs.org/
-
-2. **npm or yarn**:  
-   Node.js comes with npm (Node Package Manager) preinstalled. Alternatively, you can use yarn as a package manager, which can be installed by running:
-
-   .. code-block:: bash
-
-      npm install --global yarn
-
-3. **Code Editor**:  
-   Install a code editor such as Visual Studio Code (VS Code) for managing and editing the project files.
-
-Setting Up the Project
-----------------------
-
-To set up the React frontend project, follow these steps:
-
-1. **Clone the Repository**:  
-   Clone the repository to your local machine using Git:
-
-   .. code-block:: bash
-
-      git clone <repository-url>
-
-2. **Navigate to the Project Directory**:  
-   Move into the project folder:
-
-   .. code-block:: bash
-
-      cd <3D-Visualizer-4>
-      cd <frontend>
-
-3. **Install Dependencies**:  
-   Install the necessary dependencies for the project using npm or yarn:
-
-   .. code-block:: bash
-
-      npm install
-
-   Or, if you are using yarn:
-
-   .. code-block:: bash
-
-      yarn install
-
-Starting the Development Server
--------------------------------
-
-Once the dependencies are installed, you can start the React development server:
-
-1. **Run the Development Server**:  
-   Use the following command to start the application in development mode:
-
-   .. code-block:: bash
-
-      npm start
-
-   Or, if you are using yarn:
-
-   .. code-block:: bash
-
-      yarn start
-
-2. **Access the Application**:  
-   After the server starts, the application will be available in your default web browser at:
-
-   .. code-block:: text
-
-      http://localhost:3000
-
-   If the browser does not open automatically, you can manually navigate to this URL.
-
-Troubleshooting
----------------
-
-- **Port Already in Use**:  
-  If port `3000` is already in use, the terminal will prompt you to use another port. Press `Y` to confirm.
-
-- **Dependency Issues**:  
-  If you encounter issues while installing dependencies,
-
-
-
-Home Screen
------------
-.. image:: ../static/images/REACT-HOME.png
-
-Main purpose of the home-screen is to welcome the user and introduce him to the application.
-Inside the image above, all interacttive fields are colored red. On the top the user will find a navigation bar with several functions (see Home.tsx, App.tsx, NAV.tsx, Home.css).
-To reach the adress-input mask the user can click on "Create New" or the "Start" button in the center.
-If "Satelite View" is clicked, the user can receive a preview of the satelite picture to the entered adress data.
-To see the 3D Model, "3D Mesh View" has to be selected. Next the logos of University Würzburg and our partner Greenventory can be clicked to reach their websites for futher info.
-On the right-down corner, the user can view a video-clip which summarizes main function of our frontend shortly.
-
-Adress Input
--------------
-.. image:: ../static/images/REACT-INPUT.png
-
-Adress Input can be carried out by filling in all fields of the input-mask. When clicking on "Submit" a POST request will be send to backend with the address data (see CreateNew.tsx). 
-
-Visualising 3D Model 
--------------
-.. image:: ../static/images/REACT-3DModel.png
-
-Inside the page "3D mesh View" the user can see the generated 3d Model of the slected adress. By using the mouse scroll bar it is possible to zoom in and out. Also when using key-left and key-right it is possible to rotate the model (see View3.tsx and 3D_Visualisation.rst).
-
 
 Technology Stack
 -----------------
@@ -225,9 +107,15 @@ Technology Stack
 - **@react-three/fiber** and **three.js**: 3D rendering and visualization.
 - **TypeScript**: Provides type safety and robust development experience.
 
-Frontend Views
---------------
 
+Development of the final Frontend Views and connection to the Backend
+-----------------------
+*by Jasmin Fabijanov*
+
+In this section, the final frontend views, their development and connection to the backend API endpoints is described in detail.
+The TerraVision frontend was meticulously designed to complement the backend’s powerful geospatial capabilities with a user-centric and visually appealing interface. Developed using React and styled in Apple’s minimalist UI aesthetic, the frontend enables users to interact seamlessly with TerraVision’s features, including address input, depth map visualization, 3D model interaction, and downloadable assets. This section delves into the development process of the frontend, highlighting the components, challenges faced, and solutions implemented.
+
+**Overview over Frontend Pages**
 ### `AddressInput.tsx`
 - A single input field for the address with a submit button styled in Apple UI fashion.
 - Background image fills the entire screen.
@@ -244,4 +132,102 @@ Frontend Views
 ### `View3.tsx`
 - Interactive 3D visualization of the mesh generated from the depth map.
 - Includes volume and area calculations displayed in the sidebar.
+
+
+**Frontend Dockerization**
+
+The frontend is packaged into a Docker container to standardize the development and deployment environment.
+
+1. Base Image: A Node.js image is used as the base, ensuring compatibility with React and TypeScript.
+2. Dependency Installation: package.json is used to install all required npm packages.
+3. Build Process: The application is built using Vite, producing a lightweight static build.
+4. Static File Serving: The built files are served using a lightweight HTTP server, such as serve, within the container.
+
+
+Architectural Overview
+--------------------------
+
+The frontend architecture was structured around React components, with each page and functionality encapsulated into reusable and modular elements. TypeScript was employed to ensure type safety, improving code maintainability and minimizing runtime errors. The use of `@react-three/fiber` and `three.js` enabled interactive 3D rendering, while React Router provided seamless navigation between pages.
+
+### Pages and Functionalities
+
+#### **1. Address Input Page**
+The **AddressInput.tsx** page serves as the entry point for the user, where an address can be entered to initiate geospatial data processing. The page design adheres to Apple’s UI style, featuring:
+- A **rounded input field** with a soft 3D effect, styled to resemble elements in Apple’s native applications.
+- A **submit button** with rounded corners and a subtle gradient, providing a tactile, modern appearance.
+- A **full-screen background image** that is slightly shifted downward for aesthetic balance.
+
+**Challenges:**
+- **Responsive Design**: Ensuring the address input field and submit button remained centered on screens of various sizes.
+- **Styling Consistency**: Achieving the soft 3D effect required experimentation with CSS shadows and gradients.
+
+**Solutions:**
+- Used a combination of CSS flexbox and media queries to center elements dynamically.
+- Styled components with detailed box-shadow layers to achieve the desired aesthetic.
+
+---
+
+#### **2. Aerial Image Display Page**
+The **ShowAerialImage.tsx** page displays the satellite image fetched from the backend and provides a dropdown menu for selecting a depth prediction model. Key features include:
+- A **translucent sidebar** styled in Apple UI design, displaying the selected address and model.
+- A **dropdown menu** styled as an interactive, modern element.
+- A **downloadable satellite image** framed by a slightly translucent box with a subtle shadow for emphasis.
+
+**Challenges:**
+- **Image Scaling and Framing**: Ensuring the satellite image maintained its aspect ratio while fitting neatly within the translucent frame.
+- **Dropdown Menu Styling**: Making the dropdown menu visually consistent with the rest of the page while retaining functionality.
+
+**Solutions:**
+- Applied `object-fit` styling to maintain the satellite image’s aspect ratio within the quadratic frame.
+- Customized dropdown styles using CSS to match the page’s Apple-inspired design.
+
+---
+
+#### **3. Prediction Display Page**
+The **PredictionDisplay.tsx** page extends the functionality of the aerial image display by incorporating the depth map. Both the satellite image and depth map are displayed side by side, each framed by translucent boxes.
+- A new **"Show 3D Model"** button was added under the model selection, matching the Apple-style design.
+- Both images are centrally aligned, with equal gaps between them and the sidebar.
+
+**Challenges:**
+- **Alignment of Elements**: Ensuring both images appeared centered and balanced with respect to the sidebar and each other.
+- **Maintaining Quadratic Frames**: Scaling both images to fit within their respective frames without distortion.
+
+**Solutions:**
+- Used CSS grid layouts to position elements precisely, with consistent padding and margins.
+- Applied dynamic resizing based on the viewport to maintain quadratic dimensions.
+
+---
+
+#### **4. 3D Visualization Page**
+The **View3.tsx** page offers an interactive visualization of the 3D mesh generated by the backend. It includes:
+- A **rotating 3D model** rendered using `@react-three/fiber` and `three.js`, with OrbitControls for zooming and rotation.
+- A sidebar displaying volumetric and footprint data, styled in line with the other pages.
+- A **download button for the 3D mesh**, represented as a subtle icon integrated into the sidebar.
+
+**Challenges:**
+- **Mesh Centering**: Ensuring the 3D model appeared centered within the canvas, irrespective of its dimensions.
+- **Performance Optimization**: Rendering large meshes in real-time without significant lag or stuttering.
+
+**Solutions:**
+- Used `computeBoundingBox` and translation methods from `three.js` to center the mesh dynamically.
+- Limited the mesh’s initial scale and resolution during loading to improve performance.
+
+
+Cross-Cutting Challenges
+-------------------------------
+
+1. **Apple UI Styling Consistency**:
+   Maintaining a cohesive Apple-style UI across all pages required meticulous attention to detail, particularly with shadows, gradients, and translucency. Consistent visual elements, such as rounded corners and soft 3D effects, were applied throughout.
+
+2. **Responsive Design**:
+   Ensuring all components remained visually balanced and functional across devices with varying screen sizes involved extensive use of CSS flexbox and grid layouts.
+
+3. **Frontend-Backend Integration**:
+   Fetching and displaying assets like images, depth maps, and meshes from the backend required robust error handling to manage failed or slow API responses.
+
+**Solutions**:
+- Integrated fallback messages (e.g., "Loading..." or error indicators) for slow or failed fetch operations.
+- Used `async/await` and `.catch` to manage fetch errors gracefully and ensure state updates.
+
+Through meticulous design and implementation, the TerraVision frontend bridges the gap between complex geospatial analytics and end-user interaction, offering a seamless and engaging experience.
 

@@ -1,10 +1,70 @@
 3D Visualisation
 ==================
-Visualisation here refers to the step from the predicted z coordinate over the DepthMap to a 3D model. 
+The process of converting the numpy model outputs into 3D visualizations (specifically triangle meshes) involves several steps, as reflected in your provided files. Below is a summary of how the transformation from depth maps (numpy arrays) to 3D triangle meshes was accomplished:
 
-Creation of depth maps
+From Depth Map to Open3D Mesh
 -----------------------
 *by Jasmin Fabijanov*
+
+**Step 1: Model Output Preparation**
+The depth prediction methods (e.g., `predict_depth_anything`, `predict_unet_baseline`, `predict_zoe_depth`) generate depth maps in the form of numpy arrays. These steps include:
+1. **Depth Map Generation:**
+   - Satellite images are passed through pre-trained models (e.g., Depth Anything V2, Unet Baseline).
+   - Outputs are reshaped and saved as numpy arrays (`*.npy`) to represent depth values.
+
+2. **Validation and Preprocessing:**
+   - Depth maps are resized to match the input dimensions of subsequent processing steps.
+   - The arrays are normalized or unsqueezed (if needed) to ensure compatibility with downstream utilities.
+
+---
+
+**Step 2: Loading Depth Map and Associated RGB Image**
+The mesh generation starts by loading the depth map and its corresponding satellite image:
+- The depth map (`*.npy`) is loaded as a numpy array.
+- The satellite image (RGB) is loaded and converted into a numpy array (`image_np`) for alignment with the depth map.
+
+---
+
+**Step 3: Generating Point Cloud**
+Using the utility function `generate_pointcloud_with_lat_lon`, the depth and RGB data are transformed into a 3D point cloud:
+1. **Coordinate Grid Creation:**
+   - A grid of `x`, `y` coordinates is generated using numpy's `meshgrid`, corresponding to the 2D depth map dimensions.
+   - The depth values (`z`) are flattened to form a 1D array, aligning with the coordinate grid.
+
+2. **Point Cloud Formation:**
+   - A pandas DataFrame is created to store `x`, `y`, `z` coordinates along with RGB values (scaled to [0, 1]).
+   - Open3D's `PointCloud` utility is used to initialize a 3D point cloud from these coordinates.
+
+3. **Coloring and Normals:**
+   - The RGB values are applied as colors to the point cloud.
+   - Normals are estimated for the point cloud using Open3D's KD-Tree-based search, crucial for mesh generation.
+
+---
+
+**Step 4: Mesh Construction**
+The utility function `create_poisson_mesh` transforms the point cloud into a triangle mesh like described in the `Generating PointCloud`` section below :
+1. **Poisson Surface Reconstruction:**
+   - Open3D's `create_from_point_cloud_poisson` is employed to generate a smooth, manifold triangle mesh.
+   - The reconstruction is parameterized (e.g., depth = 11) to balance mesh resolution and computational cost.
+
+2. **Mesh Output:**
+   - The resulting triangle mesh is stored in Open3D's `TriangleMesh` format.
+   - It is then saved as a PLY file for use in 3D visualization tools or web-based applications.
+
+---
+
+**Step 5: Returning or Serving the Mesh**
+The triangle mesh is saved locally and returned as part of a Flask API response.
+To save computational power, the mesh is written to disk in PLY format so that it doesnt have to be generated again when the same address is called.
+When the mesh is first generated it is processed and returned directly to the client.
+
+---
+
+**Key Transformation Workflow Summary**
+1. **Numpy Depth Map → Pandas DataFrame:** Using `x`, `y`, `z` coordinates and RGB values.
+2. **Pandas DataFrame → Open3D Point Cloud:** Applying color and normal estimation.
+3. **Open3D Point Cloud → Triangle Mesh:** Using Poisson reconstruction for high-quality 3D representation.
+4. **Mesh Storage:** Exported as binary PLY format for compatibility with 3D viewers.
 
 
 Generating pointclouds

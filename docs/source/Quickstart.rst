@@ -43,8 +43,10 @@ Getting started - Development Setup
    npm run dev
    ```
 
-Using the system
------------------
-**Address-Based Data Retrieval**
-**Volume and Area Estimation**
-**Downloadable Assets**
+## Starting the Whole Application Using the Docker Engine
+
+Next to starting the backend and frontend seperately by running 'flask run' and 'npm run dev' you can also start the entire project by running 'docker compose up --build'
+
+The essential files for this are:
+- Dockerfiles are included for both the backend and frontend.
+- Use `docker-compose` to build and deploy the entire application.

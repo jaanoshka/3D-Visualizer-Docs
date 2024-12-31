@@ -2,7 +2,8 @@ Implemented Models
 ===================
 Depth Anything V2
 ------------------
-*by Jasmin Fabijanov and Evalotta Horn*
+**Base Architecture**
+*by Evalotta Horn*
 
 The Depth Anything V2 model is a perfect fit for this project as it is a powerful tool for performing monocular depth estimation. [#]_ There are five key reasons that support our choice of this model:
 
@@ -11,6 +12,51 @@ The Depth Anything V2 model is a perfect fit for this project as it is a powerfu
 - **Low memory requirements with high performance:**  Depth Anything V2 requires less memory while still achieving superior accuracy in many benchmarks. Even the smallest version of the model often outperforms heavyweight competitors. This was also an advantage for us, as we used Google Colab during this project.
 - **Training with high quality data:** The model is pretrained on synthetic images with precise depth information, which avoids issues such as label noise and missing details often found in real-world images. For our project, we fine-tuned the model using high-quality LiDAR data, which provided accurate and reliable depth information. Therefore we were able to maintain the high quality.
 - **Comparison with other methods:** Depth Anything V2 outperforms other popular models, such as Depth Anything V1 and MiDaS, in both benchmarks and visual quality. It successfully combines the strengths of generative and discriminative approaches to produce accurate, realistic depth maps.
+
+**Making the Model Output Metric/Absolute**
+*by Jasmin Fabijanov*
+
+The Depth Anything V2 architecture distinguishes itself from other MDA models through several key innovations:
+
+- **Synthetic Data Utilization:** Unlike traditional models that rely on real-world labeled images, Depth Anything V2 employs high-quality synthetic images for training. This approach enhances label precision and detail, leading to more accurate depth predictions.
+- **Scalable Model Architecture:** The model offers a range of architectures, from 25 million to 1.3 billion parameters, allowing users to select a model that best fits their specific application requirements.
+- **Pseudo-Labeled Real Images:** To bridge the gap between synthetic and real-world data, Depth Anything V2 generates pseudo-depth labels for a large dataset of unlabeled real images. This strategy improves the model's generalization capabilities across diverse real-world scenarios.
+- **Versatile Evaluation Benchmark:** The introduction of DA-2K, a new benchmark with diverse and precisely annotated scenes, enables comprehensive evaluation of the model's performance across various environments.
+
+Due to the need for a metric model output, the model needed to be altered so that the final layer calculates the absolute depth in meters. 
+At first, the last layer of the model was tried to be altered to calculate the absolute value of depth for each pixel. 
+But after extensive research within the huggingface library and the numerous pretrained model variations of Depth Anything V2 the "depth-anything/Depth-Anything-V2-Base-hf" was found, which was already modified to produce metric outputs.
+
+The architecture is structured as follows:
+
+- Labeled images are passed through the encoder-decoder pipeline and the depth predictions are directly supervised using the actual depth labels.
+- Unlabeled images are passed through the same encoder-decoder pipeline but the model relies on pseudo-labels from a pre-trained teacher model to supervise predictions.
+- To account for semantic consistency between the features extracted using the pseeudo-labels and the true-labels, feedback loops are implemented between labeled and unlabeled data.
+
+.. image:: ../static/images/DAV2_architecture.png
+    :alt: Training loss of the models
+    :align: center 
+
+Training the model set some difficulties. The first training loop had an Mean Absolute Error (MAE) of 2.52 meters in the 10th epoch. After evaluating the predicted depth maps, it revealed a date discrepancy between the train images and depth labels, meaning the LiDAR files (as shown in the picture below).
+Additionally, the depth scales of the predicted depth map and the true depth map are assimilated.
+
+.. image:: ../static/images/Loop1.png
+    :alt: Training loss of the models
+    :align: center
+
+In the second train loop this date discrepancy within the train dataset is resolved by matching the images and LiDAR files from the Open Data NRW database on dates. As a result the train loss is decreased to 2.02 meters in the 10th epoch. 
+But the model still struggles with identifying continuous planes like rooftops in the whole. Instead it emphasizes the edges of those rooftops and labels them as a higher and continuously flattens towards the center of the roof. 
+Due to this, a better loss function that puts large areas of zeros height into statistical context was needed. For this purpose the Huber Loss was identified as fitting.
+
+.. image:: ../static/images/Loop2.png
+    :alt: Training loss of the models
+    :align: center
+
+In the next train loop the Huber Loss was used for evaluation and the train loss decreased to 1.72 meters in the 10th epoch.
+
+.. image:: ../static/images/Loop3.png
+    :alt: Training loss of the models
+    :align: center
 
 Zoe Depth 
 ----------
