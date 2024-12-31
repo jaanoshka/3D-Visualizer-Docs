@@ -116,6 +116,7 @@ In this section, the final frontend views, their development and connection to t
 The TerraVision frontend was meticulously designed to complement the backend’s powerful geospatial capabilities with a user-centric and visually appealing interface. Developed using React and styled in Apple’s minimalist UI aesthetic, the frontend enables users to interact seamlessly with TerraVision’s features, including address input, depth map visualization, 3D model interaction, and downloadable assets. This section delves into the development process of the frontend, highlighting the components, challenges faced, and solutions implemented.
 
 **Overview over Frontend Pages**
+
 `AddressInput.tsx`
 - A single input field for the address with a submit button styled in Apple UI fashion.
 - Background image fills the entire screen.

@@ -6,7 +6,8 @@ Data Collection and Preprocessing for Depth Prediction from Satellite Imagery
 *by Jasmin Fabijanov*
 
 **1.1. Data Sources**
-The datasets utilized was sourced from Open Data NRW (Link hier), which provides extensive geospatial data, including high-resolution satellite imagery and corresponding LiDAR-derived depth information. These datasets were chosen for their coverage and precision, suitable for depth estimation tasks.
+
+The datasets utilized was sourced from Open Data NRW, which provides extensive geospatial data, including high-resolution satellite imagery and corresponding LiDAR-derived depth information. These datasets were chosen for their coverage and precision, suitable for depth estimation tasks.
 
 **1.2. Data Types**
 The collected data includes a random sample of 1,000 entries of:
