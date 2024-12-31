@@ -10,6 +10,7 @@ The datasets utilized was sourced from Open Data NRW, which provides extensive g
 
 **1.2. Data Types**
 The collected data includes a random sample of 1,000 entries of:
+
 - **Satellite Images**: High-resolution normalized RGB imagery with georeferenced metadata.
 - **LiDAR Data**: Point cloud files in `.tif` format containing precise altitude measurements, already preprocessed by providing the height of a pixel from ground to object height instead of from LiDAR sensor to object height.
 

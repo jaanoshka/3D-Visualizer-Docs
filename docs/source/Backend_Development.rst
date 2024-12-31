@@ -37,18 +37,25 @@ Interactions and Workflow
 -------------------------
 
 1. **Input: Address from User**
+
    - A user provides an address through the frontend interface.
    - This address is processed to fetch satellite images via the Image Blueprint.
 
+
 2. **Depth Estimation**
+
    - The Model Blueprint processes the fetched satellite images through the selected depth prediction pipeline.
    - Depth maps are stored locally for reuse and further analysis.
 
+
 3. **Mesh Generation**
+
    - Using the Mesh Blueprint, the depth maps are transformed into 3D triangle meshes or point clouds.
    - These meshes are saved as PLY files, enabling 3D visualization.
 
+
 4. **Visualization and Analytics**
+
    - The backend serves depth maps and meshes as files or data streams, which the frontend integrates into interactive visualization tools.
 
 
@@ -56,18 +63,25 @@ API Endpoints
 -------------
 
 `/mesh/image/<string:address>`
+
 - **Method**: GET
 - **Description**: Fetches and processes the satellite image for a given address.
 
+
 `/mesh/depth/<string:address>/<string:model>`
+
 - **Method**: GET
 - **Description**: Generates a depth map for the given address and model.
 
+
 `/mesh/ply/<string:address>/<string:model>`
+
 - **Method**: GET
 - **Description**: Creates a 3D mesh from the depth map for the specified address and model.
 
+
 `/image/volume/<string:address>/<string:model>`
+
 DISCLAIMER: This function is deactivated in the application due to unprecise depth estimations resulting in misscalculated volumes.
 - **Method**: GET
 - **Description**: Calculates total building volume and footprint area in a bounding box around the given address.
