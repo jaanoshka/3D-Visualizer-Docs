@@ -12,16 +12,19 @@ Features of Terravision
 -----------------------
 
 **Address-Based Data Retrieval**
+
 This feature is the starting point for the whole application. The address input field is located on the front page of the application. 
 When submitting the address a backend method is called which returns the corresponding satellite image with the address in the center using the Google Maps Static Api and Google Geocoding Api.
 
 .. raw:: html
 
    <video width="600" height="400" controls>
-     <source src="docs/static/Address_INput.mp4" type="video/mp4">
+     <source src="_static/Address_INput.mp4" type="video/mp4">
    </video>
 
+
 **Model Predictions**
+
 Next, the user can chose one of three trained MDE models form a drop-down menu to predict the depth value of each pixel fo the satellite image:
   - Depth Anything V2
   - Zoe Depth or 
@@ -31,10 +34,12 @@ After submitting the chosen model, again, a backend method is called which retur
 .. raw:: html
 
    <video width="600" height="400" controls>
-     <source src="docs/static/Prediction_display.mp4" type="video/mp4">
+     <source src="_static/Prediction_display.mp4" type="video/mp4">
    </video>
 
+
 **3D Visualization**
+
 Then, the user has the ability to let a 3D model be generated from the depth map and satellite image.
 In the backend the open3D library is used for calculating a pointcloud and a poisson mesh.
 In the frontend the React extension "three-fiber" is used for 3D rendering of the generated poisson mesh.
@@ -42,17 +47,19 @@ In the frontend the React extension "three-fiber" is used for 3D rendering of th
 .. raw:: html
 
    <video width="600" height="400" controls>
-     <source src="docs/static/Mesh.mp4" type="video/mp4">
+     <source src="_static/Mesh.mp4" type="video/mp4">
    </video>
 
+
 **Downloadable Assets**
+
 This feature enables the download of each mentioned element, meaning the satellite image, the depth map and the 3D model.
 The file name of each element is specified by the corresponding address and the specific tag for satellite image, depth map or 3D model.
 
 .. raw:: html
 
    <video width="600" height="400" controls>
-     <source src="docs/static/Downloads.mp4" type="video/mp4">
+     <source src="_static/Downloads.mp4" type="video/mp4">
    </video>
 
 

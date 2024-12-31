@@ -3,6 +3,7 @@ Implemented Models
 Depth Anything V2
 ------------------
 **Base Architecture**
+
 *by Evalotta Horn*
 
 The Depth Anything V2 model is a perfect fit for this project as it is a powerful tool for performing monocular depth estimation. [#]_ There are five key reasons that support our choice of this model:
@@ -14,6 +15,7 @@ The Depth Anything V2 model is a perfect fit for this project as it is a powerfu
 - **Comparison with other methods:** Depth Anything V2 outperforms other popular models, such as Depth Anything V1 and MiDaS, in both benchmarks and visual quality. It successfully combines the strengths of generative and discriminative approaches to produce accurate, realistic depth maps.
 
 **Making the Model Output Metric/Absolute**
+
 *by Jasmin Fabijanov*
 
 The Depth Anything V2 architecture distinguishes itself from other MDA models through several key innovations:
@@ -57,6 +59,7 @@ In the next train loop the Huber Loss was used for evaluation and the train loss
 .. image:: ../static/images/Loop3.png
     :alt: Training loss of the models
     :align: center
+
 
 Zoe Depth 
 ----------

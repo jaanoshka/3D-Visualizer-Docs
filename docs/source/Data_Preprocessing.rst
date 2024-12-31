@@ -1,4 +1,4 @@
-Data Collection and Preprocessing for Depth Prediction from Satellite Imagery
+Data Collection and Preprocessing for Depth Prediction
 ==================
 
 1. Data Collection
