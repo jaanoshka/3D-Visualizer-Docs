@@ -11,7 +11,9 @@ Getting started - Development Setup
 - Google Maps API key
 
 **Backend Setup**
+
 1. Clone the repository.
+
 2. Create a virtual environment:
    ```bash
    python3 -m venv env
@@ -33,7 +35,9 @@ Getting started - Development Setup
    ```
 
 **Frontend Setup**
+
 1. Navigate to the `frontend` directory.
+
 2. Install dependencies:
    ```bash
    npm install
