@@ -1,4 +1,4 @@
-Data Collection and Preprocessing for Depth Prediction
+Data Collection and Preprocessing
 ==================
 
 1. Data Collection
@@ -6,7 +6,6 @@ Data Collection and Preprocessing for Depth Prediction
 *by Jasmin Fabijanov*
 
 **1.1. Data Sources**
-
 The datasets utilized was sourced from Open Data NRW, which provides extensive geospatial data, including high-resolution satellite imagery and corresponding LiDAR-derived depth information. These datasets were chosen for their coverage and precision, suitable for depth estimation tasks.
 
 **1.2. Data Types**
@@ -15,7 +14,6 @@ The collected data includes a random sample of 1,000 entries of:
 - **LiDAR Data**: Point cloud files in `.tif` format containing precise altitude measurements, already preprocessed by providing the height of a pixel from ground to object height instead of from LiDAR sensor to object height.
 
 **1.3. Data Collection**
-
 Satellite images and LiDAR files were scraped using scripts that automate the retrieval process:
 First, the file names are saved in a dataframe with the date and the cooresponding northing and easting coordinates are extracted from the file names and saved in two separate dataframes, one for the LiDAR files and one for the images.
 Finally, the two separate dataframes are merged on the date column. 
