@@ -21,6 +21,9 @@ When submitting the address a backend method is called which returns the corresp
     :align: center
 
 
+
+
+
 **Satellite Image Retrieval and Display**
 
 Based on the given address, the corresponding satellite iamge is retrieved by geocoding it with the Google Geocoding API into a center coordinate at the point of the address.
@@ -29,6 +32,9 @@ Based on this latitude and longitude the satellite image is retrieved via the Go
 .. image:: ../static/images/image.png
     :alt: Display of Satellite Image
     :align: center
+
+
+
 
 
 **Model Predictions**
@@ -44,6 +50,9 @@ After submitting the chosen model, again, a backend method is called which retur
     :align: center
 
 
+
+
+
 **3D Visualization**
 
 Then, the user has the ability to let a 3D model be generated from the depth map and satellite image.
@@ -53,6 +62,9 @@ In the frontend the React extension "three-fiber" is used for 3D rendering of th
 .. image:: ../static/images/Mesh.png
     :alt: 3D Visualization of the Satellite Image as a Mesh
     :align: center
+
+
+
 
 
 **Downloadable Assets**
