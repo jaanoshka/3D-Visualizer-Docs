@@ -11,7 +11,8 @@ Check out the \:doc:`Implemented Models` section for further information.
 Features of Terravision
 -----------------------
 
-**Address-Based Data Retrieval**
+Address-Based Data Retrieval
+-----------------------
 
 This feature is the starting point for the whole application. The address input field is located on the front page of the application. 
 When submitting the address a backend method is called which returns the corresponding satellite image with the address in the center using the Google Maps Static Api and Google Geocoding Api.
@@ -21,10 +22,8 @@ When submitting the address a backend method is called which returns the corresp
     :align: center
 
 
-
-
-
-**Satellite Image Retrieval and Display**
+Satellite Image Retrieval and Display
+-----------------------
 
 Based on the given address, the corresponding satellite iamge is retrieved by geocoding it with the Google Geocoding API into a center coordinate at the point of the address.
 Based on this latitude and longitude the satellite image is retrieved via the Google Maps Static API and the resulting satellite image is displayed on the next page.
@@ -34,10 +33,8 @@ Based on this latitude and longitude the satellite image is retrieved via the Go
     :align: center
 
 
-
-
-
-**Model Predictions**
+Model Predictions
+-----------------------
 
 Next, the user can chose one of three trained MDE models form a drop-down menu to predict the depth value of each pixel fo the satellite image:
   - Depth Anything V2
@@ -50,10 +47,8 @@ After submitting the chosen model, again, a backend method is called which retur
     :align: center
 
 
-
-
-
-**3D Visualization**
+3D Visualization
+-----------------------
 
 Then, the user has the ability to let a 3D model be generated from the depth map and satellite image.
 In the backend the open3D library is used for calculating a pointcloud and a poisson mesh.
@@ -64,10 +59,8 @@ In the frontend the React extension "three-fiber" is used for 3D rendering of th
     :align: center
 
 
-
-
-
-**Downloadable Assets**
+Downloadable Assets
+-----------------------
 
 This feature enables the download of each mentioned element, meaning the satellite image, the depth map and the 3D model.
 The file name of each element is specified by the corresponding address and the specific tag for satellite image, depth map or 3D model.
