@@ -115,33 +115,51 @@ Development of the final Frontend Views and connection to the Backend
 In this section, the final frontend views, their development and connection to the backend API endpoints is described in detail.
 The TerraVision frontend was meticulously designed to complement the backend’s powerful geospatial capabilities with a user-centric and visually appealing interface. Developed using React and styled in Apple’s minimalist UI aesthetic, the frontend enables users to interact seamlessly with TerraVision’s features, including address input, depth map visualization, 3D model interaction, and downloadable assets. This section delves into the development process of the frontend, highlighting the components, challenges faced, and solutions implemented.
 
-**Overview over Frontend Pages**
+Overview over Frontend Pages
+-----------------------------
 
 `AddressInput.tsx`
 - A single input field for the address with a submit button styled in Apple UI fashion.
 - Background image fills the entire screen.
+.. image:: ../static/images/Address_Input.png
+    :alt: Starting Page with Address Input
+    :align: center
+
 
 `ShowAerialImage.tsx`
 - Displays the satellite image in a centered, translucent frame.
 - Includes a dropdown menu to select the depth prediction model.
 - Download button for the satellite image is incorporated.
+.. image:: ../static/images/image.png
+    :alt: Display of Satellite Image
+    :align: center
+
 
 `PredictionDisplay.tsx`
 - Displays both the satellite image and the depth map in Apple UI-style translucent frames.
 - "Show 3D Model" button to navigate to the 3D visualization page.
+.. image:: ../static/images/Depth_Map.png
+    :alt: Prediction Output visualized by a heatmap
+    :align: center
+
 
 `View3.tsx`
 - Interactive 3D visualization of the mesh generated from the depth map.
 - Includes volume and area calculations displayed in the sidebar.
+.. image:: ../static/images/Mesh.png
+    :alt: 3D Visualization of the Satellite Image as a Mesh
+    :align: center
 
 
-**Frontend Dockerization**
+
+Frontend Dockerization
+------------------------
 
 The frontend is packaged into a Docker container to standardize the development and deployment environment.
 
 1. Base Image: A Node.js image is used as the base, ensuring compatibility with React and TypeScript.
 2. Dependency Installation: package.json is used to install all required npm packages.
-3. Build Process: The application is built using Vite, producing a lightweight static build.
+3. Build Process: The application is built using npm, producing a lightweight static build.
 4. Static File Serving: The built files are served using a lightweight HTTP server, such as serve, within the container.
 
 
