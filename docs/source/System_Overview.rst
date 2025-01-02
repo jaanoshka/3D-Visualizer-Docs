@@ -6,7 +6,7 @@ In this documentation you will learn evrything about our seminar project "Terrav
 This project was realised in cooperation with Greenventory, an expert consultant for the energy sector. 
 The 3D visualization is based on the depth predictions genrated by three different Monocular Depth Estimation (MDE) Models, that the user can chose from.
 
-Check out the \:doc:`Implemented Models` section for further information, including how to \:ref:`installation` the project.
+Check out the \:doc:`Implemented Models` section for further information.
 
 Features of Terravision
 -----------------------
@@ -26,7 +26,7 @@ When submitting the address a backend method is called which returns the corresp
 Based on the given address, the corresponding satellite iamge is retrieved by geocoding it with the Google Geocoding API into a center coordinate at the point of the address.
 Based on this latitude and longitude the satellite image is retrieved via the Google Maps Static API and the resulting satellite image is displayed on the next page.
 
-.. image:: ../static/images/Image.png
+.. image:: ../static/images/image.png
     :alt: Display of Satellite Image
     :align: center
 
